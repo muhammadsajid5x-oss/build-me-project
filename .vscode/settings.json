@@ -9,5 +9,7 @@
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]* degradation)[\"'`]"]
   ],
-  "python.defaultInterpreterPath": "python"
+  "python.defaultInterpreterPath": "python",
+  "cSpell.ignoreLanguageIds": ["gitignore"],
+  "cSpell.words": ["pycache", "venv", "ntvs", "njsproj"]
 }
