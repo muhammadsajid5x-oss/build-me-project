@@ -1,0 +1,11 @@
+{
+  "name": "@build-me/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./eslint.config.mjs",
+    "./eslint.config.mjs": "./eslint.config.mjs",
+    "./eslint": "./eslint.config.mjs"
+  }
+}

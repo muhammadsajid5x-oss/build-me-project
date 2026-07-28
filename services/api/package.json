@@ -7,17 +7,15 @@
     "build": "echo 'No build required for Node API'",
     "lint": "eslint ."
   },
-  "dependencies": {
-    "@build-me/types": "workspace:*",
-    "express": "^4.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.0"
+  "devDependencies": {
+    "@build-me/config": "workspace:*"
   },
-  "turbo": {
-    "tasks": {
-      "build": {
-        "outputs": []
-      }
-    }
+  "dependencies": {
+    "@build-me/database": "workspace:*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
+    "drizzle-orm": "^0.45.2",
+    "express": "^4.19.0",
+    "postgres": "^3.4.9"
   }
 }
