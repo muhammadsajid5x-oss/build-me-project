@@ -9,10 +9,17 @@
     "lint": "turbo run lint",
     "test": "turbo run test",
     "type-check": "turbo run type-check",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:push": "drizzle-kit push"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/node": "^26.1.2",
+    "dotenv": "^16.6.1",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^10.8.0",
     "globals": "^17.8.0",
     "turbo": "^2.0.0",
