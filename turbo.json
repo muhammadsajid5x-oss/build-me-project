@@ -1,13 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env", ".env.local"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
-    },
-    "@build-me/api-service#build": {
-      "dependsOn": ["^build"],
-      "outputs": []
+      "outputs": ["dist/**", "build/**", ".next/**"]
     },
     "dev": {
       "cache": false,
@@ -19,6 +16,9 @@
     "test": {
       "dependsOn": ["^build"],
       "outputs": ["coverage/**"]
+    },
+    "type-check": {
+      "dependsOn": ["^type-check"]
     },
     "clean": {
       "cache": false
