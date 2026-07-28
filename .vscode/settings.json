@@ -9,7 +9,22 @@
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]* degradation)[\"'`]"]
   ],
-  "python.defaultInterpreterPath": "python",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
   "cSpell.ignoreLanguageIds": ["gitignore"],
-  "cSpell.words": ["pycache", "venv", "ntvs", "njsproj"]
+  "cSpell.words": [
+    "pycache",
+    "venv",
+    "ntvs",
+    "njsproj",
+    "fastapi",
+    "uvicorn",
+    "pydantic"
+  ],
+  "json.schemaDownload.enable": true,
+  "json.schemas": [
+    {
+      "fileMatch": ["turbo.json"],
+      "url": "https://turbo.build/schema.json"
+    }
+  ]
 }

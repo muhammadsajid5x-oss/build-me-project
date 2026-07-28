@@ -1,0 +1,23 @@
+{
+  "name": "@build-me/api-service",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'No build required for Node API'",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@build-me/types": "workspace:*",
+    "express": "^4.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0"
+  },
+  "turbo": {
+    "tasks": {
+      "build": {
+        "outputs": []
+      }
+    }
+  }
+}
