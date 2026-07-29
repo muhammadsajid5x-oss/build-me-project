@@ -20,7 +20,8 @@
     "uvicorn",
     "pydantic",
     "previewlanguage",
-    "Autodocs"
+    "Autodocs",
+    "Sajid"
   ],
   "json.schemaDownload.enable": true,
   "json.schemas": [

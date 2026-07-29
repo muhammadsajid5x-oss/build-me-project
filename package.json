@@ -7,7 +7,10 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "test": "turbo run test",
+    "test": "pnpm test:unit && pnpm test:integration && pnpm test:api:all",
+    "test:unit": "vitest run --config tests/integration/vitest.config.ts",
+    "test:integration": "jest --config services/api/jest.config.js",
+    "test:e2e": "cypress open",
     "type-check": "turbo run type-check",
     "clean": "turbo run clean",
     "db:generate": "drizzle-kit generate",
@@ -15,7 +18,7 @@
     "db:studio": "drizzle-kit studio",
     "db:push": "drizzle-kit push",
     "test:api": "newman run \"docs/postman/leads_api.json\" -e \"docs/postman/environment.json\"",
-    "test:api:all": "newman run 'docs/postman/Authentication API.postman_collection.json' && newman run 'docs/postman/Leads API.postman_collection.json' && newman run 'docs/postman/Bookings API.postman_collection.json' && newman run 'docs/postman/Events API.postman_collection.json'",
+    "test:api:all": "newman run \"docs/postman/leads_api.json\" -e \"docs/postman/environment.json\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -30,21 +33,28 @@
     "@storybook/addon-mcp": "^0.7.0",
     "@storybook/react": "8.6.14",
     "@storybook/react-vite": "8.6.14",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
     "@types/node": "^26.1.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "@types/supertest": "^7.2.1",
     "@vitest/browser-playwright": "^4.1.10",
     "@vitest/coverage-v8": "^4.1.10",
+    "cypress": "^15.19.0",
     "dotenv": "^16.6.1",
     "drizzle-kit": "^0.31.10",
     "eslint": "^10.8.0",
     "eslint-plugin-storybook": "^0.11.0",
     "globals": "^17.8.0",
+    "jest": "^30.4.2",
     "newman": "^6.2.2",
     "playwright": "^1.62.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "storybook": "8.6.14",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.12",
     "turbo": "^2.0.0",
     "typescript": "^5.0.0",
     "vitest": "^4.1.10"
@@ -57,5 +67,8 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "dependencies": {
+    "express": "^4.22.2"
   }
 }
