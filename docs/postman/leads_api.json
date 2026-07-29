@@ -1,0 +1,47 @@
+﻿{
+  "info": {
+    "name": "Leads API",
+    "_postman_id": "build-me-leads-api-v1",
+    "description": "Endpoints for managing prospective client leads for Build Me Platform.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Lead",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane.doe@example.com\",\n  \"source\": \"website\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/leads",
+          "host": ["{{baseUrl}}"],
+          "path": ["leads"]
+        }
+      },
+      "response": [
+        {
+          "name": "201 Created",
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "body": "{\n  \"id\": \"123e4567-e89b-12d3-a456-426614174000\",\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane.doe@example.com\",\n  \"source\": \"website\",\n  \"status\": \"new\",\n  \"createdAt\": \"2026-07-29T18:30:00.000Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get All Leads",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/leads",
+          "host": ["{{baseUrl}}"],
+          "path": ["leads"]
+        }
+      }
+    }
+  ]
+}

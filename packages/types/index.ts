@@ -1,20 +1,15 @@
-export interface User {
-  id: string;
+// Shared Types derived from Postman API Contracts
+export interface CreateLeadPayload {
+  name: string;
   email: string;
-  fullName: string;
-  createdAt: Date;
+  source?: string;
 }
 
-export interface Lead {
+export interface LeadResponse {
   id: string;
   name: string;
   email: string;
   source: string;
   status: "new" | "contacted" | "qualified" | "converted";
-}
-
-export interface AnalyticsEvent {
-  eventName: string;
-  timestamp: string;
-  payload: Record<string, unknown>;
+  createdAt: string;
 }
