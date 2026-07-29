@@ -18,7 +18,9 @@
     "njsproj",
     "fastapi",
     "uvicorn",
-    "pydantic"
+    "pydantic",
+    "previewlanguage",
+    "Autodocs"
   ],
   "json.schemaDownload.enable": true,
   "json.schemas": [
