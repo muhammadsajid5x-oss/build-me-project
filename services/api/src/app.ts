@@ -2,11 +2,8 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Disable X-Powered-By header to satisfy security checks
 app.disable("x-powered-by");
-
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:5173",
@@ -47,12 +44,5 @@ app.post("/api/v1/leads", (req, res) => {
 app.get("/api/v1/leads", (_req, res) => {
   res.status(200).json(leads);
 });
-
-// Only listen locally if not running in a production serverless environment
-if (process.env.NODE_ENV !== "production") {
-  app.listen(PORT, () => {
-    console.log(`🚀 API Service running on http://localhost:${PORT}`);
-  });
-}
 
 export default app;
