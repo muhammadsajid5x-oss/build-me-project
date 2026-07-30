@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe("Landing Page E2E Test", () => {
   it("loads the homepage and displays main heading", () => {
     cy.visit("/");

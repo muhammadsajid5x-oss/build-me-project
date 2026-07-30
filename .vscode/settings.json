@@ -21,7 +21,11 @@
     "pydantic",
     "previewlanguage",
     "Autodocs",
-    "Sajid"
+    "Sajid",
+    "Vitest",
+    "Turborepo",
+    "SUPABASE",
+    "supabase"
   ],
   "json.schemaDownload.enable": true,
   "json.schemas": [
