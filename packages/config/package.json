@@ -2,10 +2,10 @@
   "name": "@build-me/config",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "exports": {
-    ".": "./eslint.config.mjs",
-    "./eslint.config.mjs": "./eslint.config.mjs",
-    "./eslint": "./eslint.config.mjs"
+    ".": "./src/index.ts",
+    "./features": "./src/features.ts"
   }
 }
