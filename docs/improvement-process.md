@@ -1,15 +1,25 @@
 # Continuous Improvement Process
 
-## Overview
+This document outlines the standard feedback and enhancement loop for the `build-me-project` monorepo. To ensure consistent quality and performance, all operational and architectural changes flow through an iterative improvement lifecycle.
 
-Framework for iterative development, code reviews, and performance optimization.
+---
 
-## Workflow Standards
+## The Improvement Loop
 
-- All changes must be tested locally before pushing to the `develop` branch.
-- Continuous Integration (CI) workflows via GitHub Actions automatically run linting and testing steps.
-- Pull requests require peer code review and passing status checks prior to merge.
-
-## Post-Mortem Reviews
-
-- Incidents or performance bottlenecks trigger a review to update documentation, refactor code, and improve automated tests.
+```text
+Measure
+   ↓
+Analyze
+   ↓
+Identify Improvement
+   ↓
+Create Backlog Item
+   ↓
+Implement
+   ↓
+Test
+   ↓
+Deploy
+   ↓
+Measure Again
+```
