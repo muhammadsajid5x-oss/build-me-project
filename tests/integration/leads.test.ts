@@ -1,3 +1,8 @@
+import { TextEncoder, TextDecoder } from "util";
+global.TextEncoder = TextEncoder as typeof global.TextEncoder;
+global.TextDecoder = TextDecoder as typeof global.TextDecoder;
+
+import { describe, it, expect } from "@jest/globals";
 import express, { Request, Response } from "express";
 import request from "supertest";
 
@@ -7,26 +12,26 @@ app.use(express.json());
 app.post("/api/v1/leads", (req: Request, res: Response) => {
   const { name, email } = req.body;
   if (!name || !email) {
-    return res.status(400).json({ error: "Name and email required" });
+    return res.status(400).json({ error: "Missing required fields" });
   }
-  return res.status(201).json({ id: "lead-123", name, email, status: "new" });
+  return res.status(201).json({ id: "123", name, email, status: "new" });
 });
 
-describe("POST /api/v1/leads Integration Test", () => {
-  it("creates a new lead and returns 201 Created", async () => {
+describe("POST /api/v1/leads", () => {
+  it("should create a new lead and return 201 Created", async () => {
     const res = await request(app)
       .post("/api/v1/leads")
-      .send({ name: "Sajid Rao", email: "sajid@example.com" });
+      .send({ name: "John Doe", email: "john@example.com" });
 
     expect(res.status).toBe(201);
     expect(res.body).toHaveProperty("id");
     expect(res.body.status).toBe("new");
   });
 
-  it("returns 400 Bad Request when payload is incomplete", async () => {
+  it("should return 400 Bad Request when payload is incomplete", async () => {
     const res = await request(app)
       .post("/api/v1/leads")
-      .send({ name: "Sajid" });
+      .send({ name: "Incomplete Doe" });
 
     expect(res.status).toBe(400);
   });

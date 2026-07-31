@@ -29,6 +29,12 @@
     },
     "clean": {
       "cache": false
+    },
+    "storybook": {
+      "outputs": ["storybook-static/**"]
+    },
+    "storybook:build": {
+      "outputs": ["storybook-static/**"]
     }
   }
 }

@@ -25,7 +25,12 @@
     "Vitest",
     "Turborepo",
     "SUPABASE",
-    "supabase"
+    "supabase",
+    "vercel",
+    "numpy",
+    "sqlalchemy",
+    "psycopg2",
+    "dotenv"
   ],
   "json.schemaDownload.enable": true,
   "json.schemas": [

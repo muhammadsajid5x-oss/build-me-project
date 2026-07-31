@@ -8,6 +8,13 @@
       "when": 1785274122911,
       "tag": "0000_bent_newton_destine",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1785540355244,
+      "tag": "0001_complete_jane_foster",
+      "breakpoints": true
     }
   ]
 }

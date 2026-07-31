@@ -29,3 +29,7 @@ storybook-static
 
 .vercel
 .env*
+# Logs
+*.log
+services/api/logs/*.log
+*storybook.log
