@@ -47,7 +47,7 @@
     "@vitest/coverage-v8": "^4.1.10",
     "cypress": "^15.19.0",
     "dotenv": "^16.6.1",
-    "drizzle-kit": "^0.45.2",
+    "drizzle-kit": "^0.30.5",
     "eslint": "^10.8.0",
     "eslint-plugin-storybook": "^0.11.0",
     "globals": "^17.8.0",
