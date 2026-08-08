@@ -1,37 +1,37 @@
-name: CI Pipeline
+name: CI
 
 on:
+  push:
+    branches:
+      - main
+      - development
   pull_request:
     branches:
-      - develop
       - main
+      - development
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  quality-check:
+  quality:
+    name: Lint, Test & Build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: pnpm
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
+      - run: pnpm install --frozen-lockfile
 
-      - name: Install Dependencies
-        run: pnpm install
+      - run: pnpm --filter @about-me/web exec playwright install --with-deps chromium
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Run Tests
-        run: pnpm test
-
-      - name: Build
-        run: pnpm build
+      - run: pnpm turbo run lint
+      - run: pnpm turbo run test
+      - run: pnpm turbo run build

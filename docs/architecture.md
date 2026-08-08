@@ -1,1 +1,0 @@
-# Build Me System Architecture

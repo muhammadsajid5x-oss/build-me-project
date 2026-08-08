@@ -1,13 +1,13 @@
-{
+﻿{
   "compilerOptions": {
     "target": "ES2022",
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "ignoreDeprecations": "6.0",
-    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "types": ["node", "jest"]
+    "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": ["./**/*.ts"]
+  "include": ["../packages/**/*", "../tests/**/*"]
 }

@@ -1,0 +1,134 @@
+.footer-container {
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding: 32px 64px;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+.footer-inner {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-col {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.social-col {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-heading {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.social-icon-btn.linkedin {
+  background-color: #0a66c2;
+}
+.social-icon-btn.x-platform {
+  background-color: #000000;
+}
+.social-icon-btn.facebook {
+  background-color: #1877f2;
+}
+.social-icon-btn.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+.social-icon-btn.youtube {
+  background-color: #ff0000;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 52px;
+  background-color: #e2e8f0;
+}
+
+.footer-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.blue-icon {
+  color: #2563eb;
+}
+.green-icon {
+  color: #16a34a;
+}
+
+.footer-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.col-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.blue-title {
+  color: #1e40af;
+}
+.green-title {
+  color: #16a34a;
+}
+.dark-title {
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.col-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+}
+
+.info-col {
+  gap: 18px;
+}
+
+.footer-handshake-icon {
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}

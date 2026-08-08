@@ -1,0 +1,391 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 580px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 60% 48%,
+      rgba(219, 232, 255, 0.72) 0%,
+      rgba(245, 248, 253, 0.62) 32%,
+      rgba(255, 255, 255, 0) 60%
+    ),
+    #f8fafc;
+}
+
+.hero__container {
+  position: relative;
+
+  width: 1230px;
+  max-width: calc(100% - 136px);
+
+  height: 580px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  display: grid;
+
+  grid-template-columns: 410px 350px 1fr;
+
+  align-items: start;
+
+  column-gap: 27px;
+}
+
+/* =========================================================
+   LEFT — HERO CONTENT
+   ========================================================= */
+
+.hero__content-wrapper {
+  position: relative;
+
+  z-index: 5;
+
+  width: 410px;
+
+  padding: 50px 0 0 0;
+
+  display: block;
+}
+
+/* =========================================================
+   CENTER — HERO IMAGE
+   ========================================================= */
+
+.hero__image-wrapper {
+  position: relative;
+  z-index: 2;
+
+  width: 390px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================
+   RIGHT — IMPACT CARD
+   ========================================================= */
+
+.hero__metrics-wrapper {
+  position: absolute;
+
+  z-index: 10;
+
+  left: 977px;
+  top: 170px;
+
+  width: 300px;
+
+  display: block;
+}
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    width: 390px;
+    max-width: 390px;
+
+    margin: 26px 0 18px;
+
+    font-size: 60px;
+    line-height: 0.99;
+    letter-spacing: -2.4px;
+    font-weight: 800;
+  }
+
+  .hero__image-wrapper {
+    position: relative;
+
+    z-index: 2;
+
+    width: 350px;
+    height: 450px;
+
+    margin-top: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero__metrics-wrapper {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__container {
+    width: 100%;
+    max-width: 760px;
+
+    min-height: auto;
+
+    padding: 60px 32px;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 32px;
+    row-gap: 48px;
+  }
+
+  .hero__content-wrapper {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 100%;
+  }
+
+  .hero__image-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+
+    width: 320px;
+    min-width: 320px;
+    max-width: 320px;
+
+    height: 420px;
+
+    justify-self: center;
+  }
+
+  .hero__metrics-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 48px 20px;
+
+    gap: 42px;
+  }
+
+  .hero__content-wrapper,
+  .hero__image-wrapper,
+  .hero__metrics-wrapper {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+
+    justify-content: center;
+  }
+
+  .hero__content-wrapper {
+    order: 1;
+  }
+
+  .hero__image-wrapper {
+    order: 2;
+
+    width: 300px;
+    min-width: 300px;
+    max-width: 300px;
+
+    height: 390px;
+  }
+
+  .hero__metrics-wrapper h2 {
+    width: 190px;
+
+    margin: 0 0 20px;
+
+    font-size: 28px;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+}
+.hero-image-container {
+  position: relative;
+
+  width: 350px;
+  height: 450px;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+.hero-image__avatar-wrapper {
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+
+  height: 450px;
+  min-height: 450px;
+  max-height: 450px;
+
+  padding: 0;
+  margin: 0;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #dbe4f0;
+
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+}
+
+.hero-image__avatar {
+  display: block;
+
+  width: 350px !important;
+  min-width: 350px !important;
+  max-width: 350px !important;
+
+  height: 450px !important;
+  min-height: 450px !important;
+  max-height: 450px !important;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 0 !important;
+}
+.metrics-card {
+  width: 186px;
+  min-width: 186px;
+
+  padding: 12px 16px;
+
+  box-sizing: border-box;
+
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  border: 1px solid #dbe4f0;
+
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.1);
+}
+.metric-item {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 7px 0;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.metric-item:last-child {
+  border-bottom: none;
+}
+.metric-item__icon {
+  width: 32px;
+  height: 32px;
+
+  flex: 0 0 32px;
+
+  margin-right: 10px;
+
+  border-radius: 8px;
+
+  background: #eef4ff;
+}
+.metric-item__value {
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 700;
+
+  color: #1744a0;
+}
+
+.metric-item__label {
+  margin-top: 3px;
+
+  font-size: 9px;
+  line-height: 1.1;
+
+  color: #111827;
+}
+.metric-item--active {
+  margin-top: 0;
+
+  padding: 7px 8px;
+
+  border: 1px solid #93c5fd;
+
+  border-radius: 8px;
+
+  background: #f8fbff;
+}
+.impact-annotation {
+  position: absolute;
+
+  left: 790px;
+  top: 88px;
+
+  z-index: 8;
+
+  width: 150px;
+
+  pointer-events: none;
+}
+.hero-image__circle--outer {
+  width: 430px;
+  height: 430px;
+
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
+
+.hero-image__circle--inner {
+  width: 350px;
+  height: 350px;
+
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+.hero-image__glow {
+  width: 360px;
+  height: 360px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.12) 0%,
+    rgba(147, 197, 253, 0.06) 45%,
+    transparent 72%
+  );
+
+  filter: blur(25px);
+}

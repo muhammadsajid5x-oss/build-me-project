@@ -1,0 +1,43 @@
+.bm-icon {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: currentColor;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bm-icon svg {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+}
+
+.bm-icon:hover {
+  transform: scale(1.05);
+}
+
+.bm-icon--primary {
+  color: #2563eb;
+}
+
+.bm-icon--secondary {
+  color: #6b7280;
+}
+
+.bm-icon--white {
+  color: #ffffff;
+}
+
+.bm-icon--dark {
+  color: #111827;
+}

@@ -1,0 +1,167 @@
+:root {
+  /* =========================================================
+     SAM — COLOR SYSTEM
+     ========================================================= */
+
+  --sam-white: #ffffff;
+  --sam-background: #f7faff;
+  --sam-surface: #ffffff;
+
+  --sam-primary: #155eef;
+  --sam-primary-dark: #1048c7;
+  --sam-primary-light: #eaf2ff;
+
+  --sam-text-primary: #07101f;
+  --sam-text-secondary: #52627a;
+  --sam-text-muted: #7d8ba3;
+
+  --sam-border: #dce5f0;
+  --sam-border-light: #e8eef6;
+
+  --sam-icon-background: #eaf2ff;
+  --sam-icon-color: #155eef;
+
+  /* =========================================================
+   SAM TYPOGRAPHY
+   ========================================================= */
+
+  :root {
+    --sam-font-family:
+      Inter, "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+
+    /* Display */
+    --sam-heading-xl: 3.75rem;
+    --sam-heading-lg: 3rem;
+    --sam-heading-md: 2rem;
+
+    /* Body */
+    --sam-body-lg: 1rem;
+    --sam-body-md: 0.875rem;
+    --sam-body-sm: 0.75rem;
+    --sam-caption: 0.625rem;
+
+    --sam-font-weight-regular: 400;
+    --sam-font-weight-medium: 500;
+    --sam-font-weight-semibold: 600;
+    --sam-font-weight-bold: 700;
+    --sam-font-weight-extrabold: 800;
+
+    --sam-line-heading: 1.02;
+    --sam-line-body: 1.5;
+    --sam-line-tight: 1.2;
+
+    --sam-letter-tight: -0.035em;
+
+    /* =========================================================
+     SAM LAYOUT
+     ========================================================= */
+
+    --sam-page-max-width: 1280px;
+    --sam-content-max-width: 1180px;
+
+    --sam-navbar-height: 64px;
+
+    --sam-hero-padding-top: 20px;
+    --sam-hero-padding-bottom: 20px;
+
+    --sam-hero-gap: 48px;
+
+    /* =========================================================
+     SAM SPACING
+     ========================================================= */
+
+    --sam-space-1: 4px;
+    --sam-space-2: 8px;
+    --sam-space-3: 12px;
+    --sam-space-4: 16px;
+    --sam-space-5: 20px;
+    --sam-space-6: 24px;
+    --sam-space-8: 32px;
+    --sam-space-10: 40px;
+    --sam-space-12: 48px;
+    --sam-space-16: 64px;
+    --sam-space-20: 80px;
+
+    /* =========================================================
+     SAM RADIUS
+     ========================================================= */
+
+    --sam-radius-sm: 6px;
+    --sam-radius-md: 8px;
+    --sam-radius-lg: 12px;
+    --sam-radius-xl: 16px;
+    --sam-radius-pill: 9999px;
+
+    /* =========================================================
+     SAM SHADOWS
+     ========================================================= */
+
+    --sam-shadow-button: 0 8px 18px rgba(21, 94, 239, 0.22);
+
+    --sam-shadow-card: 0 14px 30px rgba(31, 52, 85, 0.12);
+
+    --sam-shadow-image: 0 16px 36px rgba(31, 52, 85, 0.12);
+
+    --sam-shadow-soft: 0 4px 14px rgba(31, 52, 85, 0.08);
+  }
+
+  /* =========================================================
+     LAYOUT
+     ========================================================= */
+
+  --sam-page-max-width: 1280px;
+  --sam-content-max-width: 1180px;
+
+  --sam-navbar-height: 64px;
+
+  --sam-hero-min-height: 540px;
+
+  --sam-footer-height: 128px;
+
+  /* =========================================================
+     SPACING
+     ========================================================= */
+
+  --sam-space-1: 0.25rem;
+  --sam-space-2: 0.5rem;
+  --sam-space-3: 0.75rem;
+  --sam-space-4: 1rem;
+  --sam-space-5: 1.25rem;
+  --sam-space-6: 1.5rem;
+  --sam-space-8: 2rem;
+  --sam-space-10: 2.5rem;
+  --sam-space-12: 3rem;
+  --sam-space-16: 4rem;
+  --sam-space-20: 5rem;
+
+  /* =========================================================
+     RADIUS
+     ========================================================= */
+
+  --sam-radius-sm: 6px;
+  --sam-radius-md: 10px;
+  --sam-radius-lg: 14px;
+  --sam-radius-xl: 18px;
+  --sam-radius-pill: 9999px;
+
+  /* =========================================================
+     SHADOWS
+     ========================================================= */
+
+  --sam-shadow-button: 0 8px 20px rgba(21, 94, 239, 0.22);
+
+  --sam-shadow-card: 0 12px 30px rgba(31, 52, 85, 0.12);
+
+  --sam-shadow-image: 0 20px 40px rgba(31, 52, 85, 0.16);
+
+  --sam-shadow-soft: 0 4px 16px rgba(31, 52, 85, 0.08);
+
+  /* =========================================================
+     TRANSITIONS
+     ========================================================= */
+
+  --sam-transition-fast: 150ms ease;
+  --sam-transition-normal: 200ms ease;
+  --sam-transition-slow: 300ms ease;
+}

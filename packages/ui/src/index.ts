@@ -1,3 +1,2 @@
-export * from "./components/Button/Button";
-export * from "./components/Card/Card";
-export * from "./components/Modal/Modal";
+﻿import "./styles/foundation.css";
+export * from "./components";

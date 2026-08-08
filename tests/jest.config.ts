@@ -3,18 +3,40 @@ import type { Config } from "jest";
 const config: Config = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  rootDir: "..", // Tells Jest the project root is one level up
-  roots: ["<rootDir>/tests", "<rootDir>/packages"],
+
+  rootDir: "..",
+
+  roots: [
+    "<rootDir>/apps",
+    "<rootDir>/tests/unit",
+    "<rootDir>/tests/integration",
+  ],
+
+  testMatch: ["**/*.test.ts", "**/*.test.tsx"],
+
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/packages/ui/",
+    "/storybook/",
+    "/tests/e2e/",
+  ],
+
+  setupFilesAfterEnv: ["<rootDir>/tests/jest.setup.ts"],
+
   transform: {
-    "^.+\\.tsx?$": [
+    "^.+\\.(ts|tsx)$": [
       "ts-jest",
       {
-        // Points to the tsconfig specifically inside your tests folder
         tsconfig: "<rootDir>/tests/tsconfig.json",
       },
     ],
   },
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+
+  moduleNameMapper: {
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+  },
+
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
 };
 
 export default config;
