@@ -2,17 +2,22 @@
   display: block;
   overflow: hidden;
   flex-shrink: 0;
+
   background: #eef3f9;
 }
 
 .avatar-image {
+  display: block;
+
   width: 100%;
   height: 100%;
-  display: block;
+
   object-fit: cover;
 }
 
-/* ---------- Sizes ---------- */
+/* =========================================
+   SIZES
+   ========================================= */
 
 .avatar-sm {
   width: 56px;
@@ -34,50 +39,15 @@
   height: 260px;
 }
 
-/* ---------- Default Avatar Shape ---------- */
-
-.avatar-sm,
-.avatar-md,
-.avatar-lg,
-.avatar-xl {
-  border-radius: 50%;
-}
-
-/* ---------- Hero Image Override ---------- */
+/* =========================================
+   HERO IMAGE
+   ========================================= */
 
 .hero-image__avatar {
-  width: 350px !important;
-  height: 450px !important;
-
-  min-width: 350px !important;
-  min-height: 450px !important;
-
-  max-width: 350px !important;
-  max-height: 450px !important;
-
-  border-radius: 10px !important;
-
-  background: transparent;
-
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-
-  overflow: hidden;
-}
-
-.hero-image__avatar .avatar-image {
   width: 100% !important;
   height: 100% !important;
 
-  min-width: 100% !important;
-  min-height: 100% !important;
-
-  max-width: none !important;
-  max-height: none !important;
-
-  display: block;
-
-  object-fit: cover;
-  object-position: center;
-
   border-radius: 0 !important;
+
+  object-fit: cover !important;
 }

@@ -8,6 +8,7 @@ export interface MetricItemProps {
   title: string;
   description: string;
   variant?: "default" | "highlight";
+  className?: string;
 }
 
 export const MetricItem: React.FC<MetricItemProps> = ({
@@ -15,16 +16,24 @@ export const MetricItem: React.FC<MetricItemProps> = ({
   title,
   description,
   variant = "default",
+  className = "",
 }) => {
   return (
-    <div className={`metric-item metric-item--${variant}`}>
-      <div className="metric-item__icon-wrapper">
-        <Icon name={icon} size={24} className="metric-item__icon" />
+    <div
+      className={["metric-item", `metric-item--${variant}`, className]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <div className="metric-item__icon">
+        <Icon name={icon} size={22} />
       </div>
+
       <div className="metric-item__content">
-        <h4 className="metric-item__title">{title}</h4>
-        <p className="metric-item__description">{description}</p>
+        <div className="metric-item__title">{title}</div>
+        <div className="metric-item__description">{description}</div>
       </div>
     </div>
   );
 };
+
+export default MetricItem;

@@ -1,31 +1,19 @@
 .badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 
-  min-height: 24px;
+  white-space: nowrap;
 
-  padding: 5px 11px;
-
-  border-radius: var(--sam-radius-pill);
-
-  font-family: var(--sam-font-family);
-  font-size: 8px;
-  font-weight: var(--sam-font-weight-semibold);
-  line-height: 1;
-
-  letter-spacing: 0.01em;
+  box-sizing: border-box;
 }
 
 .badge-primary {
-  background: var(--sam-primary-light);
-  color: var(--sam-primary);
-
-  border: 1px solid rgba(21, 94, 239, 0.08);
+  background: #f8fbff;
+  color: #174ea6;
 }
 
 .badge-secondary {
-  background: #f1f4f8;
-  color: var(--sam-text-secondary);
-
-  border: 1px solid var(--sam-border-light);
+  background: #eef4ff;
+  color: #174ea6;
 }

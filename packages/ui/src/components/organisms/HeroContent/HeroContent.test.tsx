@@ -1,24 +1,13 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-import { HeroContent } from './HeroContent';
+import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { HeroContent } from "./HeroContent";
 
-describe('HeroContent Organism', () => {
-  it('renders primary button and handles click', () => {
-    const handlePrimary = vi.fn();
-    render(
-      <HeroContent
-        data={{
-          badge: 'New',
-          title: 'Title',
-          subtitle: 'Subtitle',
-          description: 'Description',
-          primaryAction: { label: 'Click Me', onClick: handlePrimary },
-        } as any}
-      />
-    );
-    const button = screen.getByRole('button', { name: /click me/i });
-    expect(button).toBeInTheDocument();
-    fireEvent.click(button);
-    expect(handlePrimary).toHaveBeenCalledTimes(1);
+describe("HeroContent Organism", () => {
+  it("renders default static content correctly", () => {
+    render(<HeroContent />);
+
+    expect(screen.getByText("TECHNOLOGY OWNERSHIP")).toBeInTheDocument();
+    expect(screen.getByText("Build Better")).toBeInTheDocument();
+    expect(screen.getByText(/Digital Experiences/i)).toBeInTheDocument();
   });
 });

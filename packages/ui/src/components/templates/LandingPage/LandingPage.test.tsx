@@ -1,31 +1,36 @@
-import { describe, it, expect, vi } from 'vitest';
-import React from "react";
+// Place this code inside:
+// packages/ui/src/components/templates/LandingPage/LandingPage.test.tsx
+
 import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
 import { LandingPage } from "./LandingPage";
+
 const mockProps = {
-  navbar: {
-    links: [{ label: "Home", href: "/" }],
-  },
+  navbar: { logo: { brand: "Cup&Commit" } },
   hero: {
     content: {
       badge: "Tech",
-      title: "Engineering Excellence",
+      title: "Build Better",
       description: "Description text",
     },
     image: {
       avatar: { src: "test.jpg", alt: "Avatar" },
     },
-    metrics: [{ icon: "shield" as const, title: "99%", description: "Reliability" }],
+    metrics: [
+      {
+        icon: "rocket" as const,
+        title: "99%",
+        description: "Reliability",
+      },
+    ],
   },
-  footer: {
-    copyright: "� 2026 Test",
-  },
+  footer: {},
 };
+
 describe("LandingPage Template", () => {
   it("renders Navbar, Hero, and Footer components", () => {
-    render(<LandingPage {...mockProps} />);
-    expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Engineering Excellence")).toBeInTheDocument();
-    expect(screen.getByText("� 2026 Test")).toBeInTheDocument();
+    render(<LandingPage {...(mockProps as any)} />);
+    expect(screen.getByText("Cup&Commit")).toBeInTheDocument();
+    expect(screen.getByText("Build Better")).toBeInTheDocument();
   });
 });

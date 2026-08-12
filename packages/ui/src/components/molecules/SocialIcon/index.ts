@@ -1,1 +1,2 @@
-export * from "./SocialIcon";
+export { SocialIcon } from "./SocialIcon";
+export { default } from "./SocialIcon";

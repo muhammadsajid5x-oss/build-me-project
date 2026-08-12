@@ -1,4 +1,5 @@
 ﻿import React from "react";
+
 import "./Avatar.css";
 
 export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -15,14 +16,16 @@ export const Avatar: React.FC<AvatarProps> = ({
   ...props
 }) => {
   return (
-    <div className={`avatar avatar-${size} ${className}`}>
+    <div className={`avatar avatar-${size}`}>
       <img
         src={src}
         alt={alt}
-        className="avatar-image"
+        className={`avatar-image ${className}`}
         loading="lazy"
         {...props}
       />
     </div>
   );
 };
+
+export default Avatar;

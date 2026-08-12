@@ -1,1 +1,2 @@
-export * from './QuickActionCard';
+export { QuickActionCard } from "./QuickActionCard";
+export { default } from "./QuickActionCard";

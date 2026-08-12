@@ -1,77 +1,33 @@
 import React from "react";
-import { Badge } from "../../atoms/Badge";
-import { Button } from "../../atoms/Button";
 import "./HeroContent.css";
 
-export interface HeroAction {
-  label: string;
-  onClick?: () => void;
-  href?: string;
-}
-
-export interface HeroContentData {
-  badge: string;
-  title: string;
-  subtitle?: string;
-  description: string;
-  primaryAction?: HeroAction;
-  secondaryAction?: HeroAction;
-}
-
 export interface HeroContentProps {
-  data: HeroContentData;
+  className?: string;
 }
 
-export const HeroContent: React.FC<HeroContentProps> = ({ data }) => {
-  const {
-    badge,
-    title,
-    subtitle,
-    description,
-    primaryAction,
-    secondaryAction,
-  } = data;
-
+export const HeroContent: React.FC<HeroContentProps> = ({ className = "" }) => {
   return (
-    <div className="hero-content">
-      {badge && <Badge text={badge} />}
+    <div className={`hero-content ${className}`}>
+      <div className="hero-content__badge">TECHNOLOGY OWNERSHIP</div>
 
-      <div className="hero-content__headings">
-        <h1 className="hero-content__title">
-          {title}
+      <h1 className="hero-content__title" style={{ whiteSpace: "nowrap" }}>
+        <span>Build Better</span>
+        <span className="hero-content__blue"> Digital Experiences </span>
+      </h1>
 
-          {subtitle && (
-            <span className="hero-content__subtitle">{subtitle}</span>
-          )}
-        </h1>
-      </div>
+      <h2 className="hero-content__subtitle">
+        Simple, fast, and beautiful platforms that win and get real results
+      </h2>
 
-      <p className="hero-content__description">{description}</p>
-
-      {(primaryAction || secondaryAction) && (
-        <div className="hero-content__actions">
-          {primaryAction && (
-            <Button
-              size="lg"
-              rightIcon="arrow-right"
-              onClick={primaryAction.onClick}
-            >
-              {primaryAction.label}
-            </Button>
-          )}
-
-          {secondaryAction && (
-            <Button
-              variant="outline"
-              size="lg"
-              leftIcon="play"
-              onClick={secondaryAction.onClick}
-            >
-              {secondaryAction.label}
-            </Button>
-          )}
-        </div>
-      )}
+      <p className="hero-content__description">
+        Websites and apps that are easy to use, look great, and work fast. Get
+        more customers with ease.
+        <br />
+        No stress, no confusion — just simple, reliable solutions that help you
+        grow.
+      </p>
     </div>
   );
 };
+
+export default HeroContent;

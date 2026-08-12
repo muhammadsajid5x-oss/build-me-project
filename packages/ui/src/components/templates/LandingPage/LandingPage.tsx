@@ -1,46 +1,35 @@
 import React from "react";
 
-import { Navbar } from "../../organisms/Navbar";
-import type { NavbarProps } from "../../organisms/Navbar";
-
-import { Hero } from "../../organisms/Hero";
-import type { HeroProps } from "../../organisms/Hero";
-
-import { Footer } from "../../organisms/Footer";
-import type { FooterProps } from "../../organisms/Footer";
+import { Navbar } from "../../organisms/Navbar/Navbar";
+import { Hero } from "../../organisms/Hero/Hero";
+import { Footer } from "../../organisms/Footer/Footer";
 
 import "./LandingPage.css";
 
 export interface LandingPageProps {
-  navbar: NavbarProps;
-  hero: HeroProps;
-  footer: FooterProps;
+  className?: string;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({
-  navbar,
-  hero,
-  footer,
-}) => {
-  // Ensure the hero image always points to your local Sajid.png
-  const modifiedHero = {
-    ...hero,
-    image: {
-      ...hero.image,
-      src: "/Sajid.png",
-      alt: "Muhammad Sajid",
-    },
-  };
-
+export const LandingPage: React.FC<LandingPageProps> = ({ className = "" }) => {
   return (
-    <div className="landing-page">
-      <Navbar {...navbar} />
+    <div className={`landing-page ${className}`}>
+      {/* =====================================================
+          HEADER + HERO VISUAL SECTION
+          ===================================================== */}
+      <div className="landing-page__hero-section">
+        <Navbar />
 
-      <main className="landing-page__main">
-        <Hero {...modifiedHero} />
-      </main>
+        <main className="landing-page__main">
+          <Hero />
+        </main>
+      </div>
 
-      <Footer {...footer} />
+      {/* =====================================================
+          FOOTER
+          ===================================================== */}
+      <Footer />
     </div>
   );
 };
+
+export default LandingPage;

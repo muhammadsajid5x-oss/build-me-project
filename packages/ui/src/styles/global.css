@@ -1,73 +1,41 @@
-@import "./design-tokens.css";
-
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
 html,
 body,
 #root {
+  margin: 0;
+
   width: 100%;
   min-height: 100%;
-}
 
-html {
-  font-family: var(--sam-font-family);
-  background: var(--sam-background);
-  color: var(--sam-text-primary);
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  background: #eef2f7;
 
-  font-family: var(--sam-font-family);
-  font-size: var(--sam-body-md);
-  line-height: var(--sam-line-body);
+  font-family: Inter, "Plus Jakarta Sans", Arial, sans-serif;
 
-  background: var(--sam-background);
-  color: var(--sam-text-primary);
+  color: #101828;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
+.page {
+  width: calc(100% - 20px);
+  max-width: 1280px;
 
-button {
-  border: 0;
-}
+  min-height: calc(100vh - 20px);
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  margin: 10px auto;
 
-img {
-  display: block;
-  max-width: 100%;
-}
+  overflow: hidden;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
+  background: #ffffff;
 
-ul,
-ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  border: 1px solid #d8e0ea;
+
+  border-radius: 14px;
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }

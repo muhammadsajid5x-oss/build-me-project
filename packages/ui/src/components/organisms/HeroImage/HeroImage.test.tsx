@@ -1,24 +1,32 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from "vitest";
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { HeroImage } from "./HeroImage";
+
 describe("HeroImage Organism", () => {
-  const mockAvatar = {
-    src: "https://example.com/avatar.jpg",
-    alt: "Test Avatar",
-  };
   it("renders Avatar correctly", () => {
-    render(<HeroImage avatar={mockAvatar} />);
+    render(
+      <HeroImage src="https://example.com/avatar.jpg" alt="Test Avatar" />,
+    );
     const img = screen.getByAltText("Test Avatar");
     expect(img).toBeInTheDocument();
-    expect(img).toHaveAttribute("src", mockAvatar.src);
+    expect(img).toHaveAttribute("src", "https://example.com/avatar.jpg");
   });
-  it("renders decorative background when enabled", () => {
-    const { container } = render(<HeroImage avatar={mockAvatar} showDecoration={true} />);
-    expect(container.querySelector(".hero-image__decorations")).toBeInTheDocument();
+
+  it("renders with default props when none provided", () => {
+    render(<HeroImage />);
+    const img = screen.getByAltText(
+      "Engineering professional working with technology",
+    );
+    expect(img).toBeInTheDocument();
+    expect(img).toHaveAttribute("src", "/Sajid.png");
   });
-  it("hides decoration when disabled", () => {
-    const { container } = render(<HeroImage avatar={mockAvatar} showDecoration={false} />);
-    expect(container.querySelector(".hero-image__decorations")).not.toBeInTheDocument();
+
+  it("renders structural elements correctly", () => {
+    const { container } = render(<HeroImage />);
+    expect(container.querySelector(".hero-image__curve")).toBeInTheDocument();
+    expect(
+      container.querySelector(".hero-image__digital-background"),
+    ).toBeInTheDocument();
   });
 });

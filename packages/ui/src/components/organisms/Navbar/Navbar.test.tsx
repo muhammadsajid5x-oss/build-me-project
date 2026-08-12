@@ -1,33 +1,19 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { describe, it, expect } from "vitest";
 import { Navbar } from "./Navbar";
 
-const sampleLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-];
-
 describe("Navbar Organism", () => {
-  it("renders logo", () => {
-    const { container } = render(<Navbar links={sampleLinks} />);
-    const logoElement = container.querySelector("svg");
-    expect(logoElement).toBeInTheDocument();
+  it("renders logo brand correctly", () => {
+    render(<Navbar logo={{ brand: "YourBrand" }} />);
+    expect(screen.getByText("YourBrand")).toBeInTheDocument();
   });
 
-  it("renders navigation items", () => {
-    render(<Navbar links={sampleLinks} />);
-    const homeLinks = screen.getAllByText("Home");
-    const aboutLinks = screen.getAllByText("About");
-
-    expect(homeLinks[0]).toHaveAttribute("href", "/");
-    expect(aboutLinks[0]).toHaveAttribute("href", "/about");
-  });
-
-  it("renders navigation bar correctly", () => {
-    render(<Navbar links={sampleLinks} />);
-
-    const homeLinks = screen.getAllByText("Home");
-    expect(homeLinks[0]).toBeInTheDocument();
+  it("renders navigation bar correctly with default brand", () => {
+    render(<Navbar />);
+    const headerElements = screen.getAllByRole("banner");
+    expect(headerElements.length).toBeGreaterThan(0);
+    const brandElements = screen.getAllByText("Cup&Commit");
+    expect(brandElements.length).toBeGreaterThan(0);
+    expect(brandElements[0]).toBeInTheDocument();
   });
 });

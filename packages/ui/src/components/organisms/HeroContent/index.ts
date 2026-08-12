@@ -1,1 +1,2 @@
-export * from "./HeroContent";
+export { HeroContent } from "./HeroContent";
+export { default } from "./HeroContent";

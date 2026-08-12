@@ -1,41 +1,76 @@
 import React from "react";
-import { Divider } from "../../atoms/Divider";
-import { MetricItem } from "../../molecules/MetricItem";
-import type { IconName } from "../../atoms/Icon";
+import { Icon } from "../../atoms/Icon";
 import "./ImpactCard.css";
 
-export interface Metric {
-  icon: IconName;
-  title: string;
-  description: string;
-  variant?: "default" | "highlight";
+export interface ImpactMetric {
+  value: string;
+  label: string;
+  icon: "shield" | "rocket" | "dollar" | "star";
 }
 
 export interface ImpactCardProps {
-  metrics: Metric[];
+  className?: string;
+  metrics?: ImpactMetric[];
 }
 
-export const ImpactCard: React.FC<ImpactCardProps> = ({ metrics = [] }) => {
-  return (
-    <div className="impact-card">
-      {metrics.length === 0 ? (
-        <div className="impact-card__empty">No metrics available</div>
-      ) : (
-        metrics.map((metric, index) => (
-          <React.Fragment key={`${metric.title}-${index}`}>
-            <MetricItem
-              icon={metric.icon}
-              title={metric.title}
-              description={metric.description}
-              variant={metric.variant ?? "default"}
-            />
+const defaultMetrics: ImpactMetric[] = [
+  {
+    value: "99.9%",
+    label: "System Reliability",
+    icon: "shield",
+  },
+  {
+    value: "Faster",
+    label: "Time to Market",
+    icon: "rocket",
+  },
+  {
+    value: "Lower",
+    label: "Operational Costs",
+    icon: "dollar",
+  },
+  {
+    value: "Stronger",
+    label: "Security & Trust",
+    icon: "shield",
+  },
+];
 
-            {index !== metrics.length - 1 && (
-              <Divider className="impact-card__divider" />
-            )}
-          </React.Fragment>
-        ))
-      )}
-    </div>
+export const ImpactCard: React.FC<ImpactCardProps> = ({
+  className = "",
+  metrics = defaultMetrics,
+}) => {
+  return (
+    <aside className={`impact-card ${className}`}>
+      <div className="impact-card__annotation">
+        <span>My Impact in Action</span>
+        <span className="impact-card__arrow">↘</span>
+      </div>
+
+      <div className="impact-card__body">
+        {metrics.map((metric, index) => (
+          <div
+            key={`${metric.value}-${metric.label}`}
+            className={[
+              "impact-card__metric",
+              index === metrics.length - 1 ? "impact-card__metric--active" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            <div className="impact-card__icon">
+              <Icon name={metric.icon} size={24} color="#1759d4" />
+            </div>
+
+            <div className="impact-card__text">
+              <strong>{metric.value}</strong>
+              <span>{metric.label}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </aside>
   );
 };
+
+export default ImpactCard;

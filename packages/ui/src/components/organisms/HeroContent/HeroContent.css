@@ -1,56 +1,245 @@
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
 .hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  width: 400px;
 
-  width: 100%;
-  max-width: 360px;
+  padding-top: 35px;
 
-  gap: 20px;
-  text-align: left;
+  box-sizing: border-box;
+
+  position: relative;
+  z-index: 5;
 }
 
-.hero-content__headings {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+/* =========================================================
+   TECHNOLOGY OWNERSHIP BADGE
+   ========================================================= */
+
+.hero-content__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 28px;
+
+  padding: 0 20px;
+
+  border-radius: 999px;
+
+  background: #dceaff;
+  color: #2455e6;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  line-height: 28px;
+
+  letter-spacing: 0.1px;
+
+  white-space: nowrap;
+
+  box-sizing: border-box;
+
+  margin: 0 0 7px 0;
 }
+
+/* =========================================================
+   MAIN TITLE
+   ========================================================= */
 
 .hero-content__title {
   margin: 0;
+  padding: 0;
 
-  font-size: clamp(3rem, 4.5vw, 4.8rem);
-  font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  width: 400px;
 
-  color: #101828;
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 48px;
+
+  line-height: 1.02;
+
+  font-weight: 700;
+
+  letter-spacing: -2px;
+
+  color: #071329;
+  padding-top: 15px;
 }
 
-.hero-content__subtitle {
+/* =========================================================
+   TITLE LINES
+   ========================================================= */
+
+.hero-content__title span {
   display: block;
 
-  margin-top: 4px;
-
-  color: #2563eb;
+  white-space: nowrap;
 }
+
+/* =========================================================
+   BLUE TITLE
+   ========================================================= */
+
+.hero-content__blue {
+  color: #3155e7;
+  padding-top: 7px;
+}
+
+/* =========================================================
+   SUBTITLE / LEAD
+   ========================================================= */
+
+.hero-content__subtitle {
+  width: 395px;
+
+  margin: 27px 0 0;
+
+  padding-top: 20px;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.42;
+
+  font-weight: 700;
+
+  letter-spacing: -0.25px;
+
+  color: #071329;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 
 .hero-content__description {
-  max-width: 430px;
+  width: 395px;
 
-  margin: 0;
+  margin: 14px 0 0;
 
-  font-size: 1rem;
-  line-height: 1.55;
+  padding-top: 20px;
 
-  color: #475569;
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.42;
+
+  font-weight: 400;
+
+  letter-spacing: -0.1px;
+
+  color: #17345f;
 }
 
-.hero-content__actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-  margin-top: 4px;
-  flex-wrap: wrap;
+@media (max-width: 1000px) {
+  .hero-content {
+    width: 100%;
+
+    padding-top: 20px;
+  }
+
+  .hero-content__badge {
+    margin-bottom: 8px;
+  }
+
+  .hero-content__title {
+    width: 100%;
+
+    font-size: 48px;
+
+    line-height: 1.02;
+
+    letter-spacing: -1.8px;
+  }
+
+  .hero-content__title span {
+    white-space: normal;
+  }
+
+  .hero-content__subtitle {
+    width: 100%;
+
+    margin-top: 25px;
+
+    font-size: 17px;
+
+    line-height: 1.42;
+  }
+
+  .hero-content__description {
+    width: 100%;
+
+    margin-top: 14px;
+
+    font-size: 16px;
+
+    line-height: 1.45;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .hero-content {
+    width: 100%;
+
+    padding: 12px 12px 0;
+  }
+
+  .hero-content__badge {
+    height: 28px;
+
+    padding: 0 14px;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+  }
+
+  .hero-content__title {
+    width: 100%;
+
+    font-size: 42px;
+
+    line-height: 1.02;
+
+    letter-spacing: -1.5px;
+  }
+
+  .hero-content__title span {
+    white-space: normal;
+  }
+
+  .hero-content__subtitle {
+    width: 100%;
+
+    margin-top: 22px;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+  }
+
+  .hero-content__description {
+    width: 100%;
+
+    margin-top: 13px;
+
+    font-size: 15px;
+
+    line-height: 1.45;
+  }
 }

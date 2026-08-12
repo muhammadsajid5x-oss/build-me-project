@@ -1,289 +1,227 @@
-.hero-image-container {
+/* =========================================================
+   HERO IMAGE CONTAINER
+   ========================================================= */
+
+.hero-image {
   position: relative;
-  width: 390px;
-  height: 470px;
-  min-width: 390px;
-  max-width: 390px;
-  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 
-  overflow: visible;
+  box-sizing: border-box;
+  isolation: isolate;
 }
 
-/* ================================
-   DECORATIONS
-================================ */
+/* =========================================================
+   CSS CURVE
+   IMPORTANT:
+   This is NOT Digital.png.
+   This is only the blue curved background.
+   ========================================================= */
 
-.hero-image__decorations {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-image__circle {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(37, 99, 235, 0.15);
-}
-
-.hero-image__circle--outer {
-  width: 430px;
-  height: 430px;
-}
-
-.hero-image__circle--inner {
-  width: 350px;
-  height: 350px;
-  border-color: rgba(37, 99, 235, 0.1);
-}
-
-.hero-image__glow {
+.hero-image__curve {
   position: absolute;
 
-  width: 360px;
-  height: 360px;
+  width: 1080px;
+  height: 900px;
+
+  left: -150px;
+  top: -125px;
 
   border-radius: 50%;
 
   background: radial-gradient(
-    circle,
-    rgba(37, 99, 235, 0.12) 0%,
-    rgba(147, 197, 253, 0.06) 45%,
-    transparent 72%
+    circle at 55% 45%,
+    #dceaff 0%,
+    #e5efff 48%,
+    #edf4ff 75%,
+    #f5f8ff 100%
   );
 
-  filter: blur(25px);
-
   z-index: 0;
+
+  pointer-events: none;
 }
 
-/* ================================
-   IMAGE OUTER WRAPPER
-================================ */
+/* =========================================================
+   DIGITAL.PNG
+   NORMAL RECTANGLE — NO BORDER RADIUS
+   NO CLIP-PATH
+   ========================================================= */
 
-.hero-image__avatar-wrapper {
-  position: relative;
+/* =========================================================
+   DIGITAL.PNG — ROUND BACKGROUND
+   ========================================================= */
 
-  z-index: 2;
-
-  width: 350px !important;
-  height: 450px !important;
-
-  min-width: 350px !important;
-  max-width: 350px !important;
-
-  min-height: 450px !important;
-  max-height: 450px !important;
-
-  padding: 0 !important;
-  margin: 0 !important;
-
-  display: block !important;
-
-  overflow: hidden !important;
-
-  border-radius: 10px !important;
-
-  background: transparent !important;
-  border: none !important;
-
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-
-  box-sizing: border-box !important;
-}
-
-/* ================================
-   AVATAR COMPONENT
-   ================================ */
-
-.hero-image__avatar-wrapper > * {
-  width: 350px !important;
-  height: 450px !important;
-
-  min-width: 350px !important;
-  max-width: 350px !important;
-
-  min-height: 450px !important;
-  max-height: 450px !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
-  box-sizing: border-box !important;
-
-  border-radius: 0 !important;
-}
-
-.hero-image__avatar-wrapper img {
-  display: block !important;
-
-  width: 350px !important;
-  height: 450px !important;
-
-  min-width: 350px !important;
-  max-width: 350px !important;
-
-  min-height: 450px !important;
-  max-height: 450px !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
-  object-fit: cover !important;
-  object-position: center !important;
-
-  border-radius: 0 !important;
-
-  box-sizing: border-box !important;
-}
-
-.hero-image__avatar-wrapper picture,
-.hero-image__avatar-wrapper picture img {
-  display: block !important;
-
-  width: 350px !important;
-  height: 450px !important;
-
-  min-width: 350px !important;
-  max-width: 350px !important;
-
-  min-height: 450px !important;
-  max-height: 450px !important;
-}
-
-/* ================================
-   DECORATIVE DOTS
-================================ */
-
-.hero-image-container::before,
-.hero-image-container::after {
-  content: "";
-
+.hero-image__digital-background {
   position: absolute;
 
-  width: 5px;
-  height: 5px;
+  width: 900px;
+  height: 900px;
 
+  left: -100px;
+  top: -220px;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center center;
+
+  /* MAKE DIGITAL.PNG ROUND */
   border-radius: 50%;
 
-  background: #2563eb;
+  /*
+   * Prevent the rectangular image from
+   * showing outside the circle.
+   */
+  overflow: hidden;
+
+  z-index: 1;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================================
+   PERSON
+   ========================================================= */
+
+.hero-image__photo {
+  position: absolute;
+
+  width: 620px;
+  height: 725px;
+
+  left: 0;
+  bottom: -12px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  overflow: visible;
 
   z-index: 3;
+
+  box-sizing: border-box;
 }
 
-.hero-image-container::before {
-  left: 2%;
-  top: 48%;
+/* =========================================================
+   PERSON IMAGE
+   ========================================================= */
+
+.hero-image__photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  max-width: none;
+
+  user-select: none;
 }
 
-.hero-image-container::after {
-  right: 2%;
-  bottom: 28%;
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .hero-image__curve {
+    width: 1080px;
+    height: 900px;
+
+    left: -100px;
+    top: -155px;
+  }
+
+  .hero-image__digital-background {
+    width: 600px;
+    height: 600px;
+    overflow: hidden;
+
+    left: 10px;
+    top: -100px;
+  }
+
+  .hero-image__photo {
+    width: 620px;
+    height: 725px;
+
+    left: 0;
+    bottom: -12px;
+  }
 }
 
-/* ================================
+/* =========================================================
    TABLET
-================================ */
+   ========================================================= */
 
 @media (max-width: 1000px) {
-  .hero-image-container {
-    width: 320px;
-    min-width: 320px;
-    max-width: 320px;
+  .hero-image__curve {
+    width: 820px;
+    height: 760px;
 
-    height: 420px;
+    left: -170px;
+    top: -110px;
   }
 
-  .hero-image__avatar-wrapper {
-    width: 300px !important;
-    height: 390px !important;
+  .hero-image__digital-background {
+    width: 620px;
+    height: 560px;
 
-    min-width: 300px !important;
-    max-width: 300px !important;
-
-    min-height: 390px !important;
-    max-height: 390px !important;
+    left: 0;
+    top: 0;
   }
 
-  .hero-image__avatar-wrapper > *,
-  .hero-image__avatar-wrapper img,
-  .hero-image__avatar-wrapper picture,
-  .hero-image__avatar-wrapper picture img {
-    width: 300px !important;
-    height: 390px !important;
+  .hero-image__photo {
+    width: 520px;
+    height: 600px;
 
-    min-width: 300px !important;
-    max-width: 300px !important;
-
-    min-height: 390px !important;
-    max-height: 390px !important;
-  }
-
-  .hero-image__circle--outer {
-    width: 390px;
-    height: 390px;
-  }
-
-  .hero-image__circle--inner {
-    width: 320px;
-    height: 320px;
+    left: 0;
+    bottom: -10px;
   }
 }
 
-/* ================================
+/* =========================================================
    MOBILE
-================================ */
+   ========================================================= */
 
-@media (max-width: 700px) {
-  .hero-image-container {
-    width: 300px;
-    min-width: 300px;
-    max-width: 300px;
-
-    height: 390px;
+@media (max-width: 650px) {
+  .hero-image {
+    min-height: 420px;
+    overflow: hidden;
   }
 
-  .hero-image__avatar-wrapper {
-    width: 270px !important;
-    height: 350px !important;
+  .hero-image__curve {
+    width: 650px;
+    height: 620px;
 
-    min-width: 270px !important;
-    max-width: 270px !important;
-
-    min-height: 350px !important;
-    max-height: 350px !important;
+    left: -190px;
+    top: -85px;
   }
 
-  .hero-image__avatar-wrapper > *,
-  .hero-image__avatar-wrapper img,
-  .hero-image__avatar-wrapper picture,
-  .hero-image__avatar-wrapper picture img {
-    width: 270px !important;
-    height: 350px !important;
+  .hero-image__digital-background {
+    width: 100%;
+    height: 100%;
 
-    min-width: 270px !important;
-    max-width: 270px !important;
+    left: 0;
+    top: 0;
 
-    min-height: 350px !important;
-    max-height: 350px !important;
+    object-fit: cover;
   }
 
-  .hero-image__circle--outer {
-    width: 350px;
-    height: 350px;
-  }
+  .hero-image__photo {
+    width: 420px;
+    height: 440px;
 
-  .hero-image__circle--inner {
-    width: 285px;
-    height: 285px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: -5px;
   }
 }

@@ -1,3 +1,21 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+
+  color: #101828;
+  background: #f5f8fc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {
@@ -8,24 +26,11 @@ body,
 }
 
 html {
-  background: #eef3f9;
+  background: #f5f8fc;
 }
 
 body {
-  min-height: 100vh;
-  background: #eef3f9;
-  font-family: Inter, "Plus Jakarta Sans", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-a {
-  color: inherit;
+  min-width: 320px;
+  margin: 0;
+  background: #f5f8fc;
 }

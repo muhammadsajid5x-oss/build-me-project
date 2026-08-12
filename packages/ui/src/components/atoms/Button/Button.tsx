@@ -1,5 +1,6 @@
 import React from "react";
-import { Icon, IconName } from "../Icon";
+import { Icon } from "../Icon";
+import type { IconName } from "../Icon";
 import "./Button.css";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -26,6 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   let iconSize: number;
+
   if (size === "sm") {
     iconSize = 12;
   } else if (size === "lg") {
@@ -35,6 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   let variantClass = "";
+
   if (variant === "secondary") {
     variantClass = "bg-slate-800";
   } else if (variant === "outline") {
@@ -42,6 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
 
   let sizeClass = "";
+
   if (size === "sm") {
     sizeClass = "h-9";
   } else if (size === "lg") {
@@ -66,10 +70,10 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {loading && (
-        <Icon
-          name="rocket"
-          size={iconSize}
-          className="button__icon button__icon--loading"
+        <span
+          className="button__loading"
+          aria-label="Loading"
+          aria-hidden="true"
         />
       )}
 
@@ -85,3 +89,5 @@ export const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
+
+export default Button;

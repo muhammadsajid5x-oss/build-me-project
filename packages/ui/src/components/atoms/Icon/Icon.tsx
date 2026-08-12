@@ -1,15 +1,13 @@
 import React from "react";
 import "./Icon.css";
-
 import { iconMap, IconName } from "./icons";
-
-export interface IconProps extends React.SVGProps<SVGSVGElement> {
+export interface IconProps
+  extends React.SVGProps<SVGSVGElement> {
   name: IconName;
   size?: number;
   color?: string;
   className?: string;
 }
-
 export const Icon: React.FC<IconProps> = ({
   name,
   size = 20,
@@ -18,12 +16,10 @@ export const Icon: React.FC<IconProps> = ({
   ...props
 }) => {
   const IconComponent = iconMap[name];
-
   if (!IconComponent) {
     console.warn(`Icon "${name}" not found.`);
     return null;
   }
-
   return (
     <span
       className={`bm-icon ${className}`}
@@ -31,6 +27,10 @@ export const Icon: React.FC<IconProps> = ({
         width: size,
         height: size,
         color,
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexShrink: 0,
       }}
     >
       <IconComponent
@@ -45,3 +45,4 @@ export const Icon: React.FC<IconProps> = ({
     </span>
   );
 };
+export default Icon;
