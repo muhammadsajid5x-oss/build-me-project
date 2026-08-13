@@ -1,14 +1,52 @@
-name: Production Deployment
+name: Production Validation
 
 on:
   push:
     branches:
       - main
 
+  workflow_dispatch:
+
+concurrency:
+  group: production-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  deploy:
+  production:
+    name: Production Validation
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    environment:
+      name: Production
 
     steps:
-      - name: Trigger Production Deployment
-        run: echo "Deploying to Production..."
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm turbo run lint
+
+      - name: Type Check
+        run: pnpm turbo run typecheck
+
+      - name: Run Tests
+        run: pnpm turbo run test
+
+      - name: Build
+        run: pnpm turbo run build
+
+      - name: Production Validation Complete
+        run: echo "Production validation completed successfully."

@@ -1,14 +1,52 @@
-name: Staging Deployment
+name: Staging Validation
 
 on:
   push:
     branches:
-      - develop
+      - development
+
+  workflow_dispatch:
+
+concurrency:
+  group: staging-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  staging:
+    name: Staging Validation
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    environment:
+      name: staging
 
     steps:
-      - name: Trigger Staging Deployment
-        run: echo "Deploying to Staging..."
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm turbo run lint
+
+      - name: Type Check
+        run: pnpm turbo run typecheck
+
+      - name: Run Tests
+        run: pnpm turbo run test
+
+      - name: Build
+        run: pnpm turbo run build
+
+      - name: Staging Validation Complete
+        run: echo "Staging validation completed successfully."

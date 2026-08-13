@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - development
+
   pull_request:
     branches:
       - main
@@ -16,22 +17,37 @@ concurrency:
 
 jobs:
   quality:
-    name: Lint, Test & Build
+    name: Lint, Type Check, Test & Build
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm --filter @about-me/web exec playwright install --with-deps chromium
+      - name: Install Playwright Browsers
+        run: pnpm --filter @about-me/web exec playwright install --with-deps chromium
 
-      - run: pnpm turbo run lint
-      - run: pnpm turbo run test
-      - run: pnpm turbo run build
+      - name: Lint
+        run: pnpm turbo run lint
+
+      - name: Type Check
+        run: pnpm turbo run typecheck
+
+      - name: Run Tests
+        run: pnpm turbo run test
+
+      - name: Build
+        run: pnpm turbo run build
