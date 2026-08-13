@@ -17,8 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
-    environment:
-      name: staging
+    environment: staging
 
     steps:
       - name: Checkout Repository
