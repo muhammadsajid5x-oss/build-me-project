@@ -1,20 +1,20 @@
 .footer {
   width: 100%;
-  height: 129px;
-  background: #efefef;
-  border-top: 1px solid #efefef;
+  height: 121px;
+  background: #ffffff;
+  border-top: 1px solid #e3e8ef;
+  border-bottom: 1px solid #e3e8ef;
   box-sizing: border-box;
-  overflow: visible;
   position: relative;
+  overflow: hidden;
 }
 
 /* =========================================================
-   FOOTER INNER
+   INNER
    ========================================================= */
 
 .footer__inner {
-  width: calc(100% - 20px);
-  max-width: 1260px;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 
@@ -29,12 +29,11 @@
    ========================================================= */
 
 .footer__social {
-  width: 266px;
-  min-width: 266px;
+  width: 21%;
+  min-width: 210px;
   height: 100%;
 
-  padding-left: 29px;
-  padding-right: 20px;
+  padding: 0 18px 0 28px;
 
   display: flex;
   flex-direction: column;
@@ -44,10 +43,9 @@
 }
 
 .footer__social h3 {
-  margin: 0 0 10px;
+  margin: 0 0 9px;
 
   font-family: Arial, Helvetica, sans-serif;
-
   font-size: 14px;
   line-height: 1;
   font-weight: 700;
@@ -61,9 +59,15 @@
   gap: 9px;
 }
 
+/* =========================================================
+   SOCIAL BUTTON
+   ========================================================= */
+
 .footer__social-link {
-  width: 30px;
-  height: 30px;
+  width: 29px;
+  height: 29px;
+
+  flex: 0 0 29px;
 
   display: flex;
   align-items: center;
@@ -84,25 +88,21 @@
   opacity: 0.9;
 }
 
-/* LinkedIn */
+/* =========================================================
+   SOCIAL COLORS
+   ========================================================= */
 
 .footer__social-link--linkedin {
   background: #1769aa;
 }
 
-/* X */
-
 .footer__social-link--x {
   background: #000000;
 }
 
-/* Facebook */
-
 .footer__social-link--facebook {
   background: #1877f2;
 }
-
-/* Instagram */
 
 .footer__social-link--instagram {
   background: linear-gradient(
@@ -115,28 +115,47 @@
   );
 }
 
-/* YouTube */
-
 .footer__social-link--youtube {
   background: #ff0000;
 }
 
 /* =========================================================
-   ACTIONS AREA
+   SOCIAL SVG
    ========================================================= */
 
-.footer__actions {
-  height: 100%;
-  flex: 1;
+.footer__svg {
+  display: block;
+  width: 16px;
+  height: 16px;
 
-  display: flex;
-  align-items: stretch;
+  color: #ffffff;
+}
 
-  min-width: 0;
+.footer__svg--social {
+  width: 17px;
+  height: 17px;
+}
+
+.footer__svg--x {
+  width: 14px;
+  height: 14px;
 }
 
 /* =========================================================
-   INDIVIDUAL ACTION
+   ACTIONS
+   ========================================================= */
+
+.footer__actions {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  align-items: stretch;
+}
+
+/* =========================================================
+   ACTION
    ========================================================= */
 
 .footer__action {
@@ -147,36 +166,33 @@
 
   padding: 0 20px;
 
-  gap: 14px;
+  gap: 12px;
 
-  border-left: 1px solid #d8e1ed;
+  border-left: 1px solid #d7e0eb;
 
   text-decoration: none;
+  color: inherit;
 
   box-sizing: border-box;
-
-  color: inherit;
 }
 
-/* Share */
+/* =========================================================
+   WIDTHS
+   ========================================================= */
 
 .footer__action--share {
-  width: 250px;
-  min-width: 250px;
+  width: 22%;
+  min-width: 225px;
 }
-
-/* Referral */
 
 .footer__action--gift {
-  width: 222px;
-  min-width: 222px;
+  width: 21%;
+  min-width: 215px;
 }
 
-/* About */
-
 .footer__action--info {
-  width: 245px;
-  min-width: 245px;
+  width: 22%;
+  min-width: 225px;
 }
 
 /* =========================================================
@@ -185,18 +201,71 @@
 
 .footer__action-icon {
   width: 32px;
-  min-width: 32px;
   height: 32px;
+
+  min-width: 32px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   box-sizing: border-box;
+
+  color: #2463e8;
 }
 
 .footer__action-icon--green {
   color: #22a447;
+}
+
+.footer__action-icon--info {
+  color: #2463e8;
+}
+
+/* =========================================================
+   QUICK ACTION SVG
+   ========================================================= */
+
+.footer__quick-svg {
+  width: 31px;
+  height: 31px;
+
+  display: block;
+}
+
+.footer__quick-svg--share {
+  width: 31px;
+  height: 31px;
+}
+
+.footer__quick-svg--gift {
+  width: 31px;
+  height: 31px;
+}
+
+/* =========================================================
+   ABOUT INFO ICON
+   ========================================================= */
+
+.footer__quick-info {
+  width: 29px;
+  height: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #2463e8;
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+
+  box-sizing: border-box;
 }
 
 /* =========================================================
@@ -249,18 +318,16 @@
 
 .footer__copyright-section {
   flex: 1;
-  min-width: 0;
-
+  min-width: 245px;
   height: 100%;
 
-  padding-left: 20px;
-  padding-right: 17px;
+  padding: 0 17px 0 20px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  border-left: 1px solid #d8e1ed;
+  border-left: 1px solid #d7e0eb;
 
   box-sizing: border-box;
 }
@@ -281,7 +348,6 @@
 
   font-size: 10px;
   line-height: 1.15;
-
   font-weight: 700;
 
   color: #111111;
@@ -303,60 +369,65 @@
 }
 
 /* =========================================================
-   HANDSHAKE / IMPACT ICON
+   HEART
    ========================================================= */
 
 .footer__handshake {
-  width: 48px;
-  min-width: 48px;
-  height: 48px;
+  width: 43px;
+  height: 43px;
+
+  min-width: 43px;
+
+  margin-left: 10px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin-left: 12px;
-
   box-sizing: border-box;
 }
 
 .footer__handshake svg {
+  width: 43px;
+  height: 43px;
+
   display: block;
 }
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
    ========================================================= */
 
 @media (max-width: 1100px) {
   .footer__social {
-    width: 230px;
-    min-width: 230px;
+    width: 20%;
+    min-width: 195px;
+
     padding-left: 20px;
+    padding-right: 12px;
   }
 
   .footer__action {
     padding-left: 14px;
     padding-right: 14px;
-    gap: 10px;
+    gap: 9px;
   }
 
   .footer__action--share {
-    width: 220px;
-    min-width: 220px;
+    min-width: 205px;
   }
 
   .footer__action--gift {
-    width: 200px;
-    min-width: 200px;
+    min-width: 195px;
   }
 
   .footer__action--info {
-    width: 210px;
-    min-width: 210px;
+    min-width: 205px;
   }
 
   .footer__copyright-section {
+    min-width: 220px;
+
     padding-left: 14px;
     padding-right: 10px;
   }
@@ -370,80 +441,191 @@
   }
 }
 
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 850px) {
   .footer {
+    width: 100%;
     height: auto;
-    min-height: 129px;
+    overflow: visible;
   }
 
   .footer__inner {
     width: 100%;
+    height: auto;
+    margin: 0;
+
+    display: flex;
     flex-wrap: wrap;
   }
+
+  /* =======================================================
+     FOLLOW US
+     ======================================================= */
 
   .footer__social {
     width: 100%;
     min-width: 100%;
-    height: 70px;
+    height: 64px;
 
-    padding: 10px 20px;
+    padding: 0 20px;
 
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 1px solid #d8e1ed;
+    border-bottom: 1px solid #d7e0eb;
+
+    box-sizing: border-box;
   }
 
   .footer__social h3 {
     margin: 0;
   }
 
+  .footer__social-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* =======================================================
+     ACTION GRID
+     ======================================================= */
+
   .footer__actions {
     width: 100%;
     min-width: 100%;
-    height: 90px;
-  }
-
-  .footer__action {
-    flex: 1;
-    width: auto;
-    min-width: 0;
-  }
-
-  .footer__copyright-section {
-    flex: 1.3;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer {
     height: auto;
-  }
 
-  .footer__inner {
-    display: block;
-  }
-
-  .footer__social {
-    height: 65px;
-  }
-
-  .footer__actions {
-    height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    align-items: stretch;
   }
 
   .footer__action {
     width: 100%;
     min-width: 0;
-    min-height: 70px;
+    min-height: 78px;
+
+    padding: 14px 18px;
+
+    box-sizing: border-box;
   }
 
+  .footer__action--share,
+  .footer__action--gift,
+  .footer__action--info {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* =======================================================
+     DIVIDER BETWEEN SHARE AND ABOUT
+     ======================================================= */
+
+  .footer__action--info {
+    border-top: 1px solid #d7e0eb;
+  }
+
+  /* Keep the vertical divider between left/right columns */
+  .footer__action--gift {
+    border-left: 1px solid #d7e0eb;
+  }
+
+  /* =======================================================
+     COPYRIGHT
+     ======================================================= */
+
   .footer__copyright-section {
-    min-height: 75px;
-    grid-column: 1 / -1;
-    border-top: 1px solid #d8e1ed;
+    width: 100%;
+    min-width: 0;
+
+    min-height: 78px;
+
+    padding: 12px 12px 12px 14px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    border-left: 1px solid #d7e0eb;
+    border-top: 1px solid #d7e0eb;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+  }
+
+  .footer__copyright {
+    width: 100%;
+    min-width: 0;
+
+    padding-right: 42px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    box-sizing: border-box;
+  }
+
+  .footer__copyright strong {
+    margin: 0;
+
+    font-size: 8px;
+    line-height: 1.15;
+
+    white-space: normal;
+  }
+
+  .footer__copyright span {
+    margin: 0;
+
+    font-size: 7px;
+    line-height: 1.15;
+
+    white-space: normal;
+  }
+
+  /* =======================================================
+     HANDSHAKE ICON
+     ======================================================= */
+
+  .footer__handshake {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    box-sizing: border-box;
+  }
+
+  .footer__handshake svg {
+    width: 34px;
+    height: 34px;
+
+    display: block;
   }
 }

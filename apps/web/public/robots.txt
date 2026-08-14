@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://build-me-project.vercel.app/sitemap.xml
