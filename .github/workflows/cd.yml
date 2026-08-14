@@ -9,13 +9,16 @@ jobs:
   deploy-web-staging:
     name: Deploy Web (Staging)
     runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.WEB_PROJECT_ID }}
     if: >
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_branch == 'development'
+      github.event.workflow_run.head_branch == 'develop'
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: development
+          ref: develop
 
       - uses: pnpm/action-setup@v4
 
@@ -30,9 +33,6 @@ jobs:
       - name: Pull Vercel Environment
         working-directory: apps/web
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.WEB_PROJECT_ID }}
 
       - name: Build
         working-directory: apps/web
@@ -45,6 +45,9 @@ jobs:
   deploy-web-production:
     name: Deploy Web (Production)
     runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.WEB_PROJECT_ID }}
     if: >
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.head_branch == 'main'
@@ -66,9 +69,6 @@ jobs:
       - name: Pull Vercel Environment
         working-directory: apps/web
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.WEB_PROJECT_ID }}
 
       - name: Build
         working-directory: apps/web

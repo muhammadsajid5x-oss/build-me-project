@@ -31,7 +31,8 @@
     "numpy",
     "sqlalchemy",
     "psycopg2",
-    "dotenv"
+    "dotenv",
+    "trufflesecurity"
   ],
   "json.schemaDownload.enable": true,
   "json.schemas": [

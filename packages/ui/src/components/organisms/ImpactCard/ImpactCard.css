@@ -10,27 +10,38 @@
 
 .impact-card__annotation {
   position: absolute;
-  top: -45px;
-  right: 12px;
+  top: -65px;
+  right: 10px;
+
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
+  justify-content: center;
+
   color: #12449f;
+
   font-family: "Brush Script MT", "Segoe Script", cursive;
-  font-size: 23px;
+  font-size: 33px;
   line-height: 1;
   font-weight: 500;
+
   white-space: nowrap;
-  transform: rotate(-2deg);
+}
+
+.impact-card__annotation-text {
+  display: block;
 }
 
 .impact-card__arrow {
-  margin-top: 5px;
-  margin-right: 3px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 27px;
-  line-height: 1;
-  transform: rotate(15deg);
+  width: 50px;
+  height: 50px;
+
+  margin-top: 10px;
+  margin-left: 0;
+
+  flex: 0 0 70px;
+
+  color: #12449f;
+  overflow: visible;
 }
 
 .impact-card__body {
@@ -38,9 +49,11 @@
   height: 414px;
   padding: 16px 14px;
   box-sizing: border-box;
+
   border-radius: 12px;
   background: #ffffff;
   border: 1px solid #dbe4f0;
+
   box-shadow:
     0 14px 32px rgba(23, 48, 88, 0.16),
     0 4px 10px rgba(23, 48, 88, 0.08);
@@ -48,11 +61,15 @@
 
 .impact-card__metric {
   height: 88px;
+
   display: flex;
   align-items: center;
+
   gap: 14px;
   padding: 0 8px;
+
   box-sizing: border-box;
+
   border-bottom: 1px solid #dbe2ec;
 }
 
@@ -63,24 +80,30 @@
 .impact-card__metric--active {
   height: 88px;
   margin-top: 0;
+
   border: 1px solid #67a7ff;
   border-radius: 8px;
+
   background: #f8fbff;
 }
 
 .impact-card__icon {
   width: 42px;
   height: 42px;
+
   flex: 0 0 42px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 10px;
   background: #eaf2ff;
 }
 
 .impact-card__text {
   min-width: 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,7 +111,9 @@
 
 .impact-card__text strong {
   margin: 0;
+
   color: #12449f;
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 19px;
   line-height: 1.05;
@@ -97,7 +122,9 @@
 
 .impact-card__text span {
   margin-top: 5px;
+
   color: #071329;
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 11px;
   line-height: 1.15;

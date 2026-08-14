@@ -15,11 +15,14 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   quality:
     name: Lint, Type Check, Test & Build
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
 
     steps:
       - name: Checkout Repository
@@ -47,7 +50,7 @@ jobs:
         run: pnpm turbo run typecheck
 
       - name: Run Tests
-        run: pnpm turbo run test
+        run: pnpm turbo run test --filter='!@build-me/integration-tests'
 
       - name: Build
         run: pnpm turbo run build

@@ -1,0 +1,113 @@
+name: Security Validation
+
+on:
+  push:
+    branches:
+      - "feature/**"
+      - development
+      - main
+
+  pull_request:
+    branches:
+      - development
+      - main
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  sensitive-data-validation:
+    name: Validate Sensitive Data
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify .gitignore protects secrets
+        run: |
+          REQUIRED=(
+            ".env"
+            ".env.*"
+          )
+
+          for rule in "${REQUIRED[@]}"; do
+            if ! grep -Fxq "$rule" .gitignore; then
+              echo "❌ Missing '$rule' in .gitignore"
+              exit 1
+            fi
+          done
+
+          echo "✅ .gitignore protects environment files."
+
+      - name: Fail if environment files are committed
+        run: |
+          FILES=$(git ls-files | grep -E '(^|/)\.env($|\..*)' || true)
+
+          if [ -n "$FILES" ]; then
+            echo "❌ Environment files committed:"
+            echo "$FILES"
+            exit 1
+          fi
+
+          echo "✅ No environment files tracked."
+
+      - name: Fail if private keys are committed
+        run: |
+          FILES=$(git ls-files | grep -E '\.(pem|key|p12|pfx|crt|cer|jks|keystore)$' || true)
+
+          if [ -n "$FILES" ]; then
+            echo "❌ Private key or certificate detected:"
+            echo "$FILES"
+            exit 1
+          fi
+
+          echo "✅ No certificates or private keys committed."
+
+      - name: Fail if SSH keys are committed
+        run: |
+          FILES=$(git ls-files | grep -E '(id_rsa|id_ed25519|known_hosts|authorized_keys)' || true)
+
+          if [ -n "$FILES" ]; then
+            echo "❌ SSH credentials detected:"
+            echo "$FILES"
+            exit 1
+          fi
+
+          echo "✅ No SSH credentials committed."
+
+      - name: Fail if Google Service Account Keys exist
+        run: |
+          FILES=$(git ls-files | grep 'service-account.*\.json' || true)
+
+          if [ -n "$FILES" ]; then
+            echo "❌ Google service account key detected:"
+            echo "$FILES"
+            exit 1
+          fi
+
+          echo "✅ No Google service account keys committed."
+
+      - name: Fail if .npmrc contains auth tokens
+        run: |
+          MATCHES=$(git ls-files | grep '\.npmrc$' | xargs -I{} sh -c 'grep -l "_authToken\|_auth\b\|_password" "{}" 2>/dev/null' || true)
+
+          if [ -n "$MATCHES" ]; then
+            echo "❌ .npmrc file contains an auth token — remove it and use a GitHub secret instead:"
+            echo "$MATCHES"
+            exit 1
+          fi
+
+          echo "✅ No auth tokens found in committed .npmrc files."
+
+      # TruffleHog secret scanning
+      - name: Scan repository for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.pull_request.base.sha || github.event.before }}
+          head: ${{ github.event.pull_request.head.sha || github.sha }}
