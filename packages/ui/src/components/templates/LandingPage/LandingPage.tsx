@@ -8,26 +8,28 @@ import "./LandingPage.css";
 
 export interface LandingPageProps {
   className?: string;
+  navbar?: React.ComponentProps<typeof Navbar>;
+  hero?: React.ComponentProps<typeof Hero>;
+  footer?: React.ComponentProps<typeof Footer>;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({ className = "" }) => {
+export const LandingPage: React.FC<LandingPageProps> = ({
+  className = "",
+  navbar,
+  hero,
+  footer,
+}) => {
   return (
     <div className={`landing-page ${className}`}>
-      {/* =====================================================
-          HEADER + HERO VISUAL SECTION
-          ===================================================== */}
       <div className="landing-page__hero-section">
-        <Navbar />
+        <Navbar {...navbar} />
 
         <main className="landing-page__main">
-          <Hero />
+          <Hero {...hero} />
         </main>
       </div>
 
-      {/* =====================================================
-          FOOTER
-          ===================================================== */}
-      <Footer />
+      <Footer {...footer} />
     </div>
   );
 };

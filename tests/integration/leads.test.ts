@@ -2,7 +2,7 @@ import { TextEncoder, TextDecoder } from "util";
 global.TextEncoder = TextEncoder as typeof global.TextEncoder;
 global.TextDecoder = TextDecoder as typeof global.TextDecoder;
 
-import { describe, it, expect } from "@jest/globals";
+import { describe, it, expect } from "vitest";
 import express, { Request, Response } from "express";
 import request from "supertest";
 
@@ -36,3 +36,4 @@ describe("POST /api/v1/leads", () => {
     expect(res.status).toBe(400);
   });
 });
+

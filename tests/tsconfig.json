@@ -1,13 +1,25 @@
-﻿{
+{
   "compilerOptions": {
     "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "jsx": "react-jsx",
-    "strict": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": false,
     "skipLibCheck": true,
-    "types": ["jest", "@testing-library/jest-dom"]
+    "isolatedModules": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["../packages/**/*", "../tests/**/*"]
+  "include": [
+    "./**/*.ts",
+    "./**/*.tsx",
+    "../packages/**/*.ts",
+    "../packages/**/*.tsx",
+    "../apps/**/*.ts",
+    "../apps/**/*.tsx",
+    "../services/**/*.ts",
+    "../services/**/*.tsx"
+  ]
 }
