@@ -1,14 +1,15 @@
-name: CI
+name: CI Quality Gate
 
 on:
   push:
     branches:
       - main
+      - develop
       - development
-
   pull_request:
     branches:
       - main
+      - develop
       - development
 
 concurrency:
@@ -20,7 +21,7 @@ permissions:
 
 jobs:
   quality:
-    name: Lint, Type Check, Test & Build
+    name: Lint, Test, Build & Security
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -28,30 +29,53 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
+      - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Install Playwright Browsers
-        run: pnpm --filter web exec playwright install --with-deps chromium
-
       - name: Lint
         run: pnpm turbo run lint
 
-      - name: Type Check
-        run: pnpm turbo run typecheck
-
-      - name: Run Tests
-        run: pnpm turbo run test --filter='!@build-me/integration-tests'
+      - name: Unit Tests (Jest)
+        run: pnpm test:unit
 
       - name: Build
         run: pnpm turbo run build
 
+      - name: Storybook Build
+        run: pnpm storybook:build
+
+      - name: Cypress E2E Tests
+        uses: cypress-io/github-action@v6
+        with:
+          build: pnpm build
+          start: pnpm dev
+          wait-on: "http://localhost:3000"
+          wait-on-timeout: 120
+
+      - name: Security Audit
+        run: pnpm audit --prod

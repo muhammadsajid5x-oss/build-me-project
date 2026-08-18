@@ -32,7 +32,10 @@
     "sqlalchemy",
     "psycopg2",
     "dotenv",
-    "trufflesecurity"
+    "trufflesecurity",
+    "amondnet",
+    "jymh",
+    "RXWK"
   ],
   "json.schemaDownload.enable": true,
   "json.schemas": [

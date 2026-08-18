@@ -2,7 +2,7 @@ name: CD
 
 on:
   workflow_run:
-    workflows: ["CI"]
+    workflows: ["CI Quality Gate"]
     types: [completed]
 
 jobs:
@@ -14,11 +14,11 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.WEB_PROJECT_ID }}
     if: >
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.head_branch == 'development'
+      (github.event.workflow_run.head_branch == 'develop' || github.event.workflow_run.head_branch == 'development')
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: development
+          ref: ${{ github.event.workflow_run.head_branch }}
 
       - uses: pnpm/action-setup@v4
 
@@ -77,7 +77,3 @@ jobs:
       - name: Deploy Production
         working-directory: apps/web
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-
-
-

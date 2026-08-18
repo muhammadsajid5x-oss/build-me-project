@@ -9,6 +9,8 @@ const config: Config = {
   roots: ["<rootDir>/tests"],
 
   testMatch: [
+    "<rootDir>/tests/unit/**/*.test.ts",
+    "<rootDir>/tests/unit/**/*.test.tsx",
     "<rootDir>/tests/**/*.jest.test.ts",
     "<rootDir>/tests/**/*.jest.test.tsx",
   ],
@@ -26,6 +28,13 @@ const config: Config = {
 
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
 
+  // Map vitest imports to Jest equivalents and stub out CSS imports
+  moduleNameMapper: {
+    "^vitest$": "<rootDir>/tests/jest-vitest-shim.ts",
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+  },
+
+  injectGlobals: true,
   clearMocks: true,
 };
 

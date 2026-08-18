@@ -1,0 +1,52 @@
+name: Production Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: production-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  deploy-production:
+    name: Build & Deploy Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+          run_install: false
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Full Quality & Security Gate
+        run: |
+          pnpm turbo run lint
+          pnpm test:unit
+          pnpm turbo run build
+          pnpm audit --prod
+
+      - name: Deploy to Vercel (Production)
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: "team_fJymhKk4FQGzFMmVWP8lpzHw"
+          vercel-project-id: "prj_gcfZeX1mm39dov3RXWK4Iu5dYclH"
+          working-directory: .
+          vercel-args: "--prod"
