@@ -35,3 +35,4 @@ export const SocialIcon: React.FC<SocialIconProps> = ({
   );
 };
 
+export default SocialIcon;

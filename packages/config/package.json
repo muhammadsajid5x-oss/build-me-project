@@ -8,5 +8,9 @@
     ".": "./src/index.ts",
     "./features": "./src/features.ts",
     "./eslint.config.mjs": "./eslint.config.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "globals": "^17.11.0"
   }
 }

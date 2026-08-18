@@ -1,10 +1,11 @@
 import React from "react";
-import { LandingPage } from "@build-me/ui";
+
+import { AppRouter } from "./routes";
 
 import "./App.css";
 
 export const App: React.FC = () => {
-  return <LandingPage />;
+  return <AppRouter />;
 };
 
 export default App;

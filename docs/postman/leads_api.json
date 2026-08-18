@@ -1,4 +1,4 @@
-﻿{
+{
   "info": {
     "name": "Leads API",
     "_postman_id": "build-me-leads-api-v1",
@@ -10,7 +10,12 @@
       "name": "Create Lead",
       "request": {
         "method": "POST",
-        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
         "body": {
           "mode": "raw",
           "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane.doe@example.com\",\n  \"source\": \"website\"\n}"
@@ -21,6 +26,47 @@
           "path": ["leads"]
         }
       },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201 Created', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "const body = pm.response.json();",
+              "",
+              "pm.test('Response contains an id', function () {",
+              "    pm.expect(body).to.have.property('id');",
+              "    pm.expect(body.id).to.be.a('string').and.not.empty;",
+              "});",
+              "",
+              "pm.test('Response contains the submitted name', function () {",
+              "    pm.expect(body.name).to.eql('Jane Doe');",
+              "});",
+              "",
+              "pm.test('Response contains the submitted email', function () {",
+              "    pm.expect(body.email).to.eql('jane.doe@example.com');",
+              "});",
+              "",
+              "pm.test('Response contains the submitted source', function () {",
+              "    pm.expect(body.source).to.eql('website');",
+              "});",
+              "",
+              "pm.test('New lead has status new', function () {",
+              "    pm.expect(body.status).to.eql('new');",
+              "});",
+              "",
+              "pm.test('Response contains createdAt timestamp', function () {",
+              "    pm.expect(body).to.have.property('createdAt');",
+              "    pm.expect(body.createdAt).to.be.a('string').and.not.empty;",
+              "});"
+            ]
+          }
+        }
+      ],
       "response": [
         {
           "name": "201 Created",
@@ -41,7 +87,41 @@
           "host": ["{{baseUrl}}"],
           "path": ["leads"]
         }
-      }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200 OK', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const body = pm.response.json();",
+              "",
+              "pm.test('Response is an array', function () {",
+              "    pm.expect(body).to.be.an('array');",
+              "});",
+              "",
+              "pm.test('Response contains at least one lead', function () {",
+              "    pm.expect(body.length).to.be.greaterThan(0);",
+              "});",
+              "",
+              "pm.test('Lead objects contain required fields', function () {",
+              "    body.forEach(function (lead) {",
+              "        pm.expect(lead).to.have.property('id');",
+              "        pm.expect(lead).to.have.property('name');",
+              "        pm.expect(lead).to.have.property('email');",
+              "        pm.expect(lead).to.have.property('source');",
+              "        pm.expect(lead).to.have.property('status');",
+              "        pm.expect(lead).to.have.property('createdAt');",
+              "    });",
+              "});"
+            ]
+          }
+        }
+      ]
     }
   ]
 }

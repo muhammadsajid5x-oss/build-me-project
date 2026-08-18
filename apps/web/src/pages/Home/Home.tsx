@@ -13,7 +13,7 @@ export default function Home() {
         { label: "Services", href: "/services" },
         { label: "Contact", href: "/contact" },
       ],
-    } as any,
+    },
   };
 
   return <LandingPage {...mergedProps} />;

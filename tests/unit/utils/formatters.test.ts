@@ -1,12 +1,10 @@
-import { describe, it, expect } from "vitest";
-
-export function formatCurrency(amount: number): string {
-  return `$${amount.toFixed(2)}`;
-}
-
 describe("formatCurrency", () => {
-  it("formats numbers into currency strings", () => {
-    expect(formatCurrency(10)).toBe("$10.00");
+  it("formats a number as USD currency", () => {
+    const formatCurrency = (amount: number): string => {
+      return `$${amount.toFixed(2)}`;
+    };
+
+    expect(formatCurrency(100)).toBe("$100.00");
+    expect(formatCurrency(99.9)).toBe("$99.90");
   });
 });
-

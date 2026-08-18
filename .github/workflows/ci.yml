@@ -41,7 +41,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright Browsers
-        run: pnpm --filter @about-me/web exec playwright install --with-deps chromium
+        run: pnpm --filter web exec playwright install --with-deps chromium
 
       - name: Lint
         run: pnpm turbo run lint
@@ -54,3 +54,4 @@ jobs:
 
       - name: Build
         run: pnpm turbo run build
+

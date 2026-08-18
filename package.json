@@ -13,8 +13,8 @@
     "test:e2e": "cypress run",
     "test:api": "newman run \"docs/postman/leads_api.json\" -e \"docs/postman/environment.json\"",
     "test:api:all": "newman run \"docs/postman/leads_api.json\" -e \"docs/postman/environment.json\"",
-    "storybook": "storybook dev -p 6006 --config-dir storybook/.storybook",
-    "storybook:build": "storybook build --config-dir storybook/.storybook",
+    "storybook": "pnpm --filter storybook-docs storybook",
+    "storybook:build": "pnpm --filter storybook-docs build",
     "e2e": "cypress run",
     "type-check": "turbo run type-check",
     "clean": "turbo run clean",
@@ -44,5 +44,28 @@
       "qs": ">=6.14.1",
       "underscore": ">=1.13.8"
     }
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/supertest": "^7.2.1",
+    "cypress": "^15.20.1",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "jsdom": "^30.0.1",
+    "newman": "^6.2.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.12",
+    "turbo": "2.10.2",
+    "typescript": "6",
+    "vitest": "^4.1.10"
   }
 }
