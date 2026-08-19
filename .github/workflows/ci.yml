@@ -71,9 +71,8 @@ jobs:
       - name: Cypress E2E Tests
         uses: cypress-io/github-action@v6
         with:
-          build: pnpm build
-          start: pnpm dev
-          wait-on: "http://localhost:3000"
+          start: pnpm --filter web dev -- --host 0.0.0.0
+          wait-on: "http://localhost:5173"
           wait-on-timeout: 120
 
       - name: Security Audit
