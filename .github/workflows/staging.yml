@@ -14,6 +14,10 @@ jobs:
     name: Build & Deploy Staging
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.WEB_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
     steps:
       - name: Checkout Repository
@@ -23,6 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: pnpm
 
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
@@ -39,11 +44,17 @@ jobs:
           pnpm test:unit
           pnpm turbo run build
 
-      - name: Deploy to Vercel (Staging)
-        uses: amondnet/vercel-action@v42
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.WEB_PROJECT_ID }}
-          working-directory: apps/web
-          vercel-args: "--staging"
+      - name: Install Vercel CLI
+        run: pnpm add -g vercel
+
+      - name: Pull Vercel Environment
+        working-directory: apps/web
+        run: vercel pull --yes --environment=preview
+
+      - name: Build Vercel Project
+        working-directory: apps/web
+        run: vercel build
+
+      - name: Deploy to Vercel (Staging Preview)
+        working-directory: apps/web
+        run: vercel deploy --prebuilt
