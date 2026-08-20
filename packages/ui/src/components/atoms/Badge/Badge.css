@@ -1,0 +1,19 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+
+  box-sizing: border-box;
+}
+
+.badge-primary {
+  background: #f8fbff;
+  color: #174ea6;
+}
+
+.badge-secondary {
+  background: #eef4ff;
+  color: #174ea6;
+}

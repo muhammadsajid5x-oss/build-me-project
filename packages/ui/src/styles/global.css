@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  padding: 0;
+}
+
+body {
+  background: #eef2f7;
+
+  font-family: Inter, "Plus Jakarta Sans", Arial, sans-serif;
+
+  color: #101828;
+}
+
+.page {
+  width: calc(100% - 20px);
+  max-width: 1280px;
+
+  min-height: calc(100vh - 20px);
+
+  margin: 10px auto;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #d8e0ea;
+
+  border-radius: 14px;
+
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}

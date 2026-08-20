@@ -1,0 +1,312 @@
+.impact-card {
+  position: absolute;
+
+  width: 268px;
+  height: 368px;
+
+  right: 23px;
+  top: 50px;
+
+  z-index: 10;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   ANNOTATION
+   ========================================================= */
+
+.impact-card__annotation {
+  position: absolute;
+
+  top: -65px;
+  right: -9;
+
+  display: block;
+  align-items: flex-start;
+  justify-content: center;
+
+  color: #12449f;
+
+  font-family: "Brush Script MT", "Segoe Script", cursive;
+
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.impact-card__annotation-text {
+  position: absolute;
+
+  left: 37px;
+  top: 9px;
+
+  display: block;
+
+  color: #12449f;
+
+  font-family: "Brush Script MT", "Segoe Script", "Bradley Hand", cursive;
+
+  font-size: 23px;
+  line-height: 1;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transform: rotate(-1deg);
+}
+
+.impact-card__arrow {
+  position: absolute;
+
+  left: 207px;
+  top: 12px;
+
+  width: 51px;
+  height: 53px;
+
+  margin: 0;
+
+  display: block;
+
+  color: #12449f;
+
+  overflow: visible;
+
+  flex: none;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.impact-card__body {
+  width: 268px;
+  height: 368px;
+
+  padding: 7px 14px;
+
+  box-sizing: border-box;
+
+  border-radius: 13px;
+
+  background: #ffffff;
+
+  border: 1px solid #d9e1ec;
+
+  box-shadow:
+    0 10px 24px rgba(23, 48, 88, 0.14),
+    0 3px 8px rgba(23, 48, 88, 0.07);
+}
+
+/* =========================================================
+   METRIC
+   ========================================================= */
+
+.impact-card__metric {
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 0 8px;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid #dbe2ec;
+}
+
+.impact-card__metric:last-child {
+  border-bottom: none;
+}
+
+/*
+  Image 2 does NOT have the blue selected border
+  around "Stronger", so remove the previous active style.
+*/
+
+.impact-card__metric--last {
+  border-bottom: none;
+}
+
+/* =========================================================
+   ICON BOX
+   ========================================================= */
+
+.impact-card__icon {
+  width: 52px;
+  height: 52px;
+
+  min-width: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #eaf2ff;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.impact-card__svg {
+  width: 32px;
+  height: 32px;
+
+  display: block;
+
+  flex: 0 0 32px;
+}
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.impact-card__text {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.impact-card__text strong {
+  margin: 0;
+
+  color: #12449f;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.impact-card__text span {
+  margin-top: 5px;
+
+  color: #071329;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  line-height: 1.15;
+
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1000px) {
+  .impact-card {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: 100%;
+    max-width: none;
+
+    height: auto;
+
+    margin: 1;
+    padding: 1px;
+
+    z-index: 10;
+
+    box-sizing: border-box;
+  }
+
+  /* Hide annotation on mobile so it does not consume
+     space or overlap the hero */
+  .impact-card__annotation {
+    display: flex;
+    left: 75px;
+    top: px;
+  }
+
+  .impact-card__body {
+    width: 100%;
+    height: auto;
+
+    min-height: 400px;
+
+    padding: 16px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+  }
+
+  .impact-card__metric {
+    width: 100%;
+    height: 88px;
+
+    padding: 0 8px;
+
+    gap: 14px;
+
+    box-sizing: border-box;
+  }
+
+  .impact-card__metric--last {
+    border-bottom: none;
+  }
+
+  .impact-card__icon {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+  }
+
+  .impact-card__text {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .impact-card {
+    width: 100%;
+    margin: 0;
+  }
+
+  .impact-card__body {
+    width: 400px;
+    min-height: 400px;
+
+    padding: 16px 14px;
+
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .impact-card__metric {
+    height: 88px;
+
+    padding: 0 8px;
+  }
+}

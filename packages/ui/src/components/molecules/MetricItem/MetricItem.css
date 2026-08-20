@@ -1,0 +1,81 @@
+.metric-item {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 58px;
+
+  padding: 8px 0;
+
+  background: transparent;
+
+  border-radius: 8px;
+
+  transition: background 0.2s ease;
+}
+
+.metric-item:hover {
+  background: #f8fafc;
+}
+
+.metric-item__icon-wrapper {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #edf4ff;
+
+  color: #155eef;
+}
+
+.metric-item__icon {
+  width: 18px;
+  height: 18px;
+}
+
+.metric-item__content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.metric-item__title {
+  margin: 0;
+
+  color: #123b8f;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  line-height: 1.1;
+}
+
+.metric-item__description {
+  margin: 0;
+
+  color: #101828;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.25;
+}
+
+.metric-item--highlight {
+  padding: 8px 8px;
+
+  border: 1px solid #b2ddff;
+
+  background: #f5faff;
+}

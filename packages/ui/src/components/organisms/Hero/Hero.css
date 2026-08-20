@@ -1,0 +1,645 @@
+/* =========================================================
+   HERO CONTAINER
+   Target composition: 1280 × 720
+   ========================================================= */
+
+.hero {
+  width: 100%;
+  height: 530px;
+  min-height: 530px;
+  max-height: 530px;
+
+  background: transparent;
+
+  position: relative;
+  box-sizing: border-box;
+
+  overflow: visible;
+
+  margin: 0;
+  padding: 0;
+
+  z-index: 1;
+}
+
+/* =========================================================
+   HERO INNER
+   ========================================================= */
+
+.hero__inner {
+  position: relative;
+
+  width: 1180px;
+  height: 530px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 400px 780px;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   LEFT / RIGHT VISUAL AREA
+   ========================================================= */
+
+.hero__visual {
+  position: relative;
+
+  width: 780px;
+  height: 530px;
+
+  box-sizing: border-box;
+
+  overflow: visible;
+}
+
+.hero__visual > .hero-image {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 780px;
+  height: 530px;
+}
+
+/* =========================================================
+   HERO IMAGE CONTAINER
+   ========================================================= */
+
+.hero-image {
+  position: relative;
+
+  width: 780px;
+  height: 530px;
+
+  min-height: 530px;
+
+  box-sizing: border-box;
+
+  overflow: visible;
+
+  isolation: isolate;
+}
+
+/* =========================================================
+   LARGE DIGITAL CURVE
+   ========================================================= */
+
+.hero-image__curve {
+  position: absolute;
+
+  width: 1080px;
+  height: 900px;
+
+  left: 80px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 52% 48%,
+    #e8f0ff 0%,
+    #eaf2ff 42%,
+    #edf5ff 70%,
+    #f5f8ff 100%
+  );
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   DIGITAL NETWORK
+   ========================================================= */
+
+.hero-image__digital {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.62;
+
+  background-image:
+    radial-gradient(
+      circle at 32% 42%,
+      rgba(65, 112, 219, 0.3) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 45% 30%,
+      rgba(65, 112, 219, 0.24) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 57% 48%,
+      rgba(65, 112, 219, 0.22) 0 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      circle at 42% 65%,
+      rgba(65, 112, 219, 0.2) 0 1px,
+      transparent 2px
+    );
+
+  background-size:
+    95px 95px,
+    125px 125px,
+    110px 110px,
+    135px 135px;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+/* =========================================================
+   DIGITAL CONNECTION LINES
+   ========================================================= */
+
+.hero-image__digital::before {
+  content: "";
+
+  position: absolute;
+
+  width: 620px;
+  height: 420px;
+
+  left: 40px;
+  top: 120px;
+
+  opacity: 0.36;
+
+  background:
+    linear-gradient(
+      27deg,
+      transparent 49.7%,
+      rgba(64, 113, 224, 0.22) 50%,
+      transparent 50.3%
+    ),
+    linear-gradient(
+      -23deg,
+      transparent 49.7%,
+      rgba(64, 113, 224, 0.2) 50%,
+      transparent 50.3%
+    ),
+    linear-gradient(
+      11deg,
+      transparent 49.7%,
+      rgba(64, 113, 224, 0.16) 50%,
+      transparent 50.3%
+    );
+
+  background-size:
+    170px 110px,
+    180px 120px,
+    220px 150px;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   DIGITAL DOTS
+   ========================================================= */
+
+.hero-image__digital-dot {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: rgba(55, 103, 214, 0.28);
+
+  box-shadow: 0 0 8px rgba(55, 103, 214, 0.15);
+
+  z-index: 2;
+}
+
+.hero-image__digital-dot--1 {
+  left: 210px;
+  top: 180px;
+}
+
+.hero-image__digital-dot--2 {
+  left: 290px;
+  top: 250px;
+}
+
+.hero-image__digital-dot--3 {
+  left: 375px;
+  top: 200px;
+}
+
+.hero-image__digital-dot--4 {
+  left: 430px;
+  top: 300px;
+}
+
+.hero-image__digital-dot--5 {
+  left: 275px;
+  top: 365px;
+}
+
+.hero-image__digital-dot--6 {
+  left: 500px;
+  top: 170px;
+}
+
+.hero-image__digital-dot--7 {
+  left: 555px;
+  top: 275px;
+}
+
+.hero-image__digital-dot--8 {
+  left: 360px;
+  top: 420px;
+}
+
+.hero-image__digital-dot--9 {
+  left: 170px;
+  top: 325px;
+}
+
+/* =========================================================
+   ORBITAL RINGS
+   ========================================================= */
+
+.hero-image__rings {
+  position: absolute;
+
+  width: 700px;
+  height: 650px;
+
+  left: 15px;
+  top: -20px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.hero-image__ring {
+  position: absolute;
+
+  border: 1px solid rgba(68, 117, 232, 0.15);
+
+  border-radius: 50%;
+
+  box-sizing: border-box;
+}
+
+.hero-image__ring--1 {
+  width: 350px;
+  height: 350px;
+
+  left: 100px;
+  top: -10px;
+}
+
+.hero-image__ring--2 {
+  width: 300px;
+  height: 300px;
+
+  left: 125px;
+  top: 25px;
+}
+
+.hero-image__ring--3 {
+  width: 250px;
+  height: 250px;
+
+  left: 150px;
+  top: 55px;
+}
+
+/* =========================================================
+   PERSON / PHOTO
+   ========================================================= */
+
+.hero-image__photo {
+  position: absolute;
+
+  width: 590px;
+  height: 530px;
+
+  left: 15px;
+  bottom: 0;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  overflow: hidden;
+
+  z-index: 3;
+
+  box-sizing: border-box;
+}
+
+.hero-image__photo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center top;
+
+  max-width: none;
+
+  user-select: none;
+}
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1200px) {
+  .hero {
+    height: 530px;
+    min-height: 530px;
+    max-height: 530px;
+  }
+
+  .hero__inner {
+    width: 1180px;
+    height: 530px;
+  }
+
+  .hero__visual {
+    width: 780px;
+    height: 530px;
+  }
+
+  .hero-image {
+    width: 780px;
+    height: 530px;
+  }
+
+  .hero-image__curve {
+    width: 1080px;
+    height: 860px;
+
+    left: 0px;
+    top: -230px;
+  }
+
+  .hero-image__photo {
+    width: 590px;
+    height: 530px;
+
+    left: 10px;
+    bottom: 0;
+  }
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   TABLET / SMALL DESKTOP
+   --------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .hero__inner {
+    width: calc(100% - 40px);
+    height: auto;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: visible;
+  }
+
+  .hero__visual {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    overflow: visible;
+  }
+
+  /*
+   * IMPORTANT:
+   * Reset the desktop absolute positioning.
+   */
+  .hero__visual > .hero-image {
+    position: relative;
+
+    left: auto;
+    top: auto;
+
+    transform: none;
+
+    width: 100%;
+    height: 520px;
+
+    flex: 0 0 520px;
+  }
+
+  .hero-image {
+    position: relative;
+
+    width: 100%;
+    height: 520px;
+    min-height: 520px;
+
+    flex: 0 0 520px;
+  }
+
+  /*
+   * Keep the ImpactCard AFTER the image
+   * instead of placing it on top of the Hero.
+   */
+  .hero__visual > .impact-card {
+    position: relative;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    transform: none;
+
+    flex: 0 0 auto;
+
+    margin: 70px auto 40px;
+
+    z-index: 20;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .hero {
+    width: 100%;
+
+    height: auto;
+    min-height: 0;
+    max-height: none;
+
+    overflow: visible;
+  }
+
+  .hero__inner {
+    width: 100%;
+
+    height: auto;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: visible;
+  }
+
+  .hero__visual {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    margin-top: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    overflow: visible;
+  }
+
+  /*
+   * Hero image becomes a normal-flow block.
+   * It can no longer sit underneath the ImpactCard.
+   */
+  .hero__visual > .hero-image {
+    position: relative;
+
+    left: auto;
+    top: auto;
+
+    transform: none;
+
+    width: 100%;
+    height: 420px;
+
+    min-height: 420px;
+
+    flex: 0 0 420px;
+
+    overflow: visible;
+  }
+
+  .hero-image {
+    position: relative;
+
+    width: 100%;
+    height: 420px;
+
+    min-height: 420px;
+
+    flex: 0 0 420px;
+
+    overflow: visible;
+  }
+
+  /*
+   * Scale the decorative background for mobile.
+   */
+  .hero-image__curve {
+    width: 820px;
+    height: 700px;
+
+    left: 50%;
+    top: -100px;
+
+    transform: translateX(-50%);
+  }
+
+  /*
+   * Keep the person visible and centered.
+   */
+  .hero-image__photo {
+    width: 430px;
+    height: 420px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    overflow: hidden;
+  }
+
+  .hero-image__rings {
+    width: 500px;
+    height: 480px;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+  }
+
+  /*
+   * ImpactCard is now BELOW the HeroImage.
+   */
+  .hero__visual > .impact-card {
+    position: relative;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: -70px;
+
+    transform: none;
+
+    width: 268px;
+    height: 368px;
+
+    margin: 0px auto 0px;
+
+    flex: 0 0 auto;
+
+    z-index: 20;
+  }
+}

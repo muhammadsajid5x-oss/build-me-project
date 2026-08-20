@@ -1,0 +1,122 @@
+﻿/* =================================================================ause
+   SAM Visual System - Foundation CSS Tokens & Reset
+   ==================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------
+     1. SAM Light Theme Foundation Tokens
+     ------------------------------------------------------------------ */
+  --sam-background: #ffffff;
+  --sam-surface: #f8fafc;
+  --sam-text-primary: #0f172a;
+  --sam-text-secondary: #475569;
+  --sam-border: #e2e8f0;
+  --sam-primary: #2563eb;
+  --sam-primary-hover: #1d4ed8;
+
+  /* ------------------------------------------------------------------
+     2. Global Typography
+     ------------------------------------------------------------------ */
+  --font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  --heading-1: var(--text-5xl);
+  --heading-2: var(--text-4xl);
+  --heading-3: var(--text-3xl);
+  --heading-4: var(--text-2xl);
+
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* ------------------------------------------------------------------
+     3. Color Tokens
+     ------------------------------------------------------------------ */
+  --sam-bg: #f8fafc;
+  --primary-blue: #2563eb;
+  --primary-blue-hover: #1d4ed8;
+  --heading-black: #0f172a;
+  --secondary-text: #475569;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --icon-bg: #eff6ff;
+
+  /* ------------------------------------------------------------------
+     4. Layout Tokens
+     ------------------------------------------------------------------ */
+  --max-page-width: 1280px;
+  --header-height: 4rem;
+  --hero-min-height: 36rem;
+  --footer-height: auto;
+  --standard-spacing: 1.5rem;
+
+  /* ------------------------------------------------------------------
+     5. SAM Visual Primitives
+     ------------------------------------------------------------------ */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --blue-glow: 0 0 25px -5px rgba(37, 99, 235, 0.4);
+
+  --card-border: 1px solid var(--border-color);
+  --image-treatment: grayscale(5%) contrast(105%);
+}
+
+/* ------------------------------------------------------------------
+   6. Remove Conflicting Styling & Defaults
+   ------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--sam-bg);
+  color: var(--heading-black);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Override interfering dark-theme or global overrides */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Enforce SAM light theme reference consistency */
+    --sam-bg: #f8fafc;
+    --heading-black: #0f172a;
+    --secondary-text: #475569;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+  }
+}

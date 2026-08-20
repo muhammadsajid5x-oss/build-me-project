@@ -1,0 +1,108 @@
+﻿/* =========================================================
+   LANDING PAGE
+   ========================================================= */
+
+.landing-page {
+  width: 100%;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.landing-page > header,
+.landing-page > nav {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.landing-page > main {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  flex: 1 0 auto;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.landing-page .hero {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.landing-page > footer {
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  position: relative;
+
+  z-index: 20;
+}
+
+/* =========================================================
+   REMOVE DEFAULT SPACING
+   ========================================================= */
+
+.landing-page h1,
+.landing-page h2,
+.landing-page h3,
+.landing-page h4,
+.landing-page p {
+  margin-top: 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .landing-page {
+    min-height: 100vh;
+  }
+
+  .landing-page > main {
+    flex: 1 0 auto;
+  }
+
+  .landing-page > footer {
+    flex-shrink: 0;
+  }
+}

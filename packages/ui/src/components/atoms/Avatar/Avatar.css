@@ -1,0 +1,53 @@
+.avatar {
+  display: block;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  background: #eef3f9;
+}
+
+.avatar-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =========================================
+   SIZES
+   ========================================= */
+
+.avatar-sm {
+  width: 56px;
+  height: 56px;
+}
+
+.avatar-md {
+  width: 96px;
+  height: 96px;
+}
+
+.avatar-lg {
+  width: 180px;
+  height: 180px;
+}
+
+.avatar-xl {
+  width: 260px;
+  height: 260px;
+}
+
+/* =========================================
+   HERO IMAGE
+   ========================================= */
+
+.hero-image__avatar {
+  width: 100% !important;
+  height: 100% !important;
+
+  border-radius: 0 !important;
+
+  object-fit: cover !important;
+}

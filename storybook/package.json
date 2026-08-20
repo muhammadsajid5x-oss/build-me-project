@@ -1,0 +1,18 @@
+{
+  "name": "storybook-docs",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@storybook/addon-a11y": "8.6.17",
+    "@storybook/addon-essentials": "8.6.17",
+    "@storybook/addon-interactions": "8.6.17",
+    "@storybook/addon-links": "8.6.17",
+    "@storybook/react": "8.6.17",
+    "@storybook/react-vite": "8.6.17",
+    "storybook": "8.6.17"
+  },
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build": "storybook build"
+  }
+}

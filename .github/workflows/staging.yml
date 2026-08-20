@@ -1,0 +1,59 @@
+name: Staging Deployment
+
+on:
+  push:
+    branches:
+      - develop
+
+concurrency:
+  group: staging-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-staging:
+    name: Build & Deploy Staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.WEB_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.0.0
+          run_install: false
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Quality Checks & Tests
+        run: |
+          pnpm turbo run lint
+          pnpm test:unit
+          pnpm turbo run build
+
+      - name: Install Vercel CLI
+        run: pnpm add -g vercel
+
+      - name: Pull Vercel Environment
+        working-directory: apps/web
+        run: vercel pull --yes --environment=preview
+
+      - name: Build Vercel Project
+        working-directory: apps/web
+        run: vercel build
+
+      - name: Deploy to Vercel (Staging Preview)
+        working-directory: apps/web
+        run: vercel deploy --prebuilt

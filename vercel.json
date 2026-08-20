@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm build",
+  "outputDirectory": "apps/web/dist",
+  "framework": "vite",
+  "git": {
+    "deploymentEnabled": {
+      "main": true,
+      "development": true
+    }
+  }
+}
