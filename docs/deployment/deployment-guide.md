@@ -89,3 +89,18 @@ Release
 ↓
 
 Production
+
+````markdown
+## Environment Separation
+
+Build Me uses separate configuration for each environment.
+
+### Development
+
+Development configuration is used locally.
+
+```text
+.env
+.env.local
+```
+````
