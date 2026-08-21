@@ -1,13 +1,16 @@
 ﻿import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { Hero } from '../../../../packages/ui/src/components/organisms/Hero/Hero';
+import { Hero } from "../../../../packages/ui/src/components/organisms/Hero/Hero";
 
 const mockHeroProps = {
   content: {
-    badge: "Technology Ownership",
-    title: "Engineering Excellence",
-    description: "Helping organizations build high-performing teams.",
-    ctaText: "Get Started",
+    badge: "TECHNOLOGY OWNERSHIP",
+    titlePrefix: "Build Better",
+    titleHighlight: "Digital Experiences",
+    subtitle:
+      "Simple, fast, and beautiful platforms that win and get real results",
+    description:
+      "Websites and apps that are easy to use, look great, and work fast.",
   },
   image: {
     avatar: {
@@ -17,23 +20,26 @@ const mockHeroProps = {
   },
   metrics: [
     {
-      value: "99.9%",
-      label: "System Reliability",
       icon: "shield" as const,
-      title: "Reliability",
-      description: "Uptime guarantee",
+      title: "99.9%",
+      description: "System Reliability",
     },
   ],
 };
 
 describe("Hero Organism", () => {
-  it("renders correctly", () => {
-    render(<Hero />);
+  it("renders correctly with mock props", () => {
+    render(<Hero {...mockHeroProps} />);
 
-    // Add assertions based on your default rendered output or sub-components
+    // Assert that the title is correctly rendered through the component tree
+    expect(
+      screen.getByRole("heading", {
+        name: "Build Better Digital Experiences",
+      }),
+    ).toBeInTheDocument();
+
+    // Assert that the semantic section wrapper with the hero class is present
     const heroElement = document.querySelector(".hero");
     expect(heroElement).toBeInTheDocument();
   });
 });
-
-
