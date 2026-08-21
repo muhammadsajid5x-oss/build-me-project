@@ -35,3 +35,4 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 };
 
 export default LandingPage;
+//updated

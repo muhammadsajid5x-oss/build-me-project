@@ -27,3 +27,4 @@ export const Hero: React.FC<HeroProps> = ({ className = "", content }) => {
 };
 
 export default Hero;
+//updated
