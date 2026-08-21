@@ -3,12 +3,16 @@ import { LandingPage } from "@build-me/ui";
 
 export type HeroProps = NonNullable<ComponentProps<typeof LandingPage>["hero"]>;
 
-export const heroConfig: Record<string, any> = {
-  badge: "TECHNOLOGY OWNERSHIP",
-  title: "Build Better",
-  subtitle: "Digital Experiences",
-  description:
-    "Simple, fast, and beautiful platforms that win and get real results. Websites and apps that are easy to use, look great, and work fast. Get more customers with ease. No stress, no confusion — just simple, reliable solutions that help you grow.",
+export const heroConfig = {
+  content: {
+    badge: "TECHNOLOGY OWNERSHIP",
+    titlePrefix: "Build Better",
+    titleHighlight: "Digital Experiences",
+    subtitle:
+      "Simple, fast, and beautiful platforms that win and get real results",
+    description:
+      "Websites and apps that are easy to use, look great, and work fast. Get more customers with ease. No stress, no confusion — just simple, reliable solutions that help you grow.",
+  },
   primaryAction: {
     label: "Get Started",
     onClick: () => alert("Get Started clicked"),

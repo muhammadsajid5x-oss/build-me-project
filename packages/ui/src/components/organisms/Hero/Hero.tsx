@@ -8,20 +8,21 @@ import "./Hero.css";
 
 export interface HeroProps {
   className?: string;
+  content?: React.ComponentProps<typeof HeroContent>;
 }
 
-export const Hero: React.FC<HeroProps> = ({ className = "" }) => {
+export const Hero: React.FC<HeroProps> = ({ className = "", content }) => {
   return (
-    <main className={`hero ${className}`}>
+    <section className={`hero ${className}`}>
       <div className="hero__inner">
-        <HeroContent />
+        <HeroContent {...content} />
 
         <div className="hero__visual">
           <HeroImage />
           <ImpactCard />
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 
