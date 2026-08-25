@@ -35,7 +35,9 @@
     "trufflesecurity",
     "amondnet",
     "jymh",
-    "RXWK"
+    "RXWK",
+    "pytest",
+    "testpaths"
   ],
   "json.schemaDownload.enable": true,
   "json.schemas": [

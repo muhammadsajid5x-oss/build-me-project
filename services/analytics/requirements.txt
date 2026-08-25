@@ -3,3 +3,4 @@ numpy
 sqlalchemy
 psycopg2
 python-dotenv
+pytest

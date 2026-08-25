@@ -13,28 +13,23 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "type-check": {
+      "dependsOn": ["^type-check"]
+    },
     "test": {
       "dependsOn": ["^build"],
       "outputs": []
     },
-    "test:e2e": {
-      "dependsOn": ["build"]
-    },
     "e2e": {
-      "dependsOn": ["build"]
-    },
-    "type-check": {
-      "dependsOn": ["^type-check"]
+      "dependsOn": ["build"],
+      "outputs": []
     },
     "clean": {
       "cache": false
     },
     "storybook": {
-      "outputs": ["storybook-static/**"]
-    },
-    "storybook:build": {
-      "dependsOn": ["^build"],
-      "outputs": ["storybook-static/**"]
+      "cache": false,
+      "persistent": true
     }
   }
 }
