@@ -3,3 +3,4 @@ packages:
   - "services/*"
   - "packages/*"
   - "database"
+  - "storybook"
