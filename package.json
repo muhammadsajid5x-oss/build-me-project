@@ -10,7 +10,7 @@
     "test": "pnpm test:unit && pnpm test:integration && pnpm test:e2e",
     "test:unit": "jest",
     "test:integration": "vitest run tests/integration",
-    "test:e2e": "start-server-and-test dev:web 5173 \"cypress run\"",
+    "test:e2e": "cypress run",
     "test:api": "newman run \"docs/postman/leads_api.json\" -e \"docs/postman/environment.json\"",
     "test:api:all": "newman run \"docs/postman/leads_api.json\" -e \"docs/postman/environment.json\"",
     "storybook": "pnpm --filter storybook-docs storybook",
