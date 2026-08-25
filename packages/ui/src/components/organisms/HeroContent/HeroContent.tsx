@@ -43,3 +43,4 @@ export const HeroContent: React.FC<HeroContentProps> = ({
 };
 
 export default HeroContent;
+//updated
